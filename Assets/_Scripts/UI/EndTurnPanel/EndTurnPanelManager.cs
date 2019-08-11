@@ -28,7 +28,8 @@ public class EndTurnPanelManager : MonoBehaviour {
 	}
 
 	public void ShowSuccessScreen() {
-		if(GameConstants.ONE_SHOT_DIRECT) {
+		if(GameConstants.ONE_SHOT_DIRECT &&
+            GameMaster.Instance.GetOpposingPlayer(MainScreenManager_GameScene.Instance.GetPlayer()).GetLifeCount() > 0) {
             this.GetDirectAttackAnimatable().Show();
             SoundManager.Instance.Play(AudibleNames.Target.GET);
             SDAComponents.SetActive(true);

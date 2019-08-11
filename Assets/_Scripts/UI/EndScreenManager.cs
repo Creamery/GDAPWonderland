@@ -36,9 +36,11 @@ public class EndScreenManager : MonoBehaviour {
 
     public void ShowEndScreen(Parameters param) {
         gameObject.SetActive(true);
+
         PlayerManager winner = param.GetObjectExtra(WINNER) as PlayerManager;
         this.SetWinner(winner.GetPlayerHero().GetHero());
 		GetEndScreenAnimatable().Show();
+        SoundManager.Instance.Play(AudibleNames.Target.GET);
 
     }
     public void SetWinner(Hero.Type heroType) {
