@@ -11,7 +11,7 @@ public class AttackButtonSpadesMarker : ObjectMarker {
     public void changeImage(Card card) {
         string strColor = GameMaster.Instance.GetCurPlayer().GetPlayerColor();
         this.GetImage().sprite = General.GetAttackWeaponSprite(strPrefix + strColor + " " + card.GetCardRank());
-        this.GetImage2().sprite = this.GetImage().sprite;
+        this.GetImage2().sprite = General.GetAttackWeaponSprite(strPrefix + strColor + " " + card.GetCardRank());
     }
 
     public Image GetImage() {
