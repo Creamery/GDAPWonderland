@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="rider_back_55_scaled" size="1.000000 1.488372" />
+    <ImageTarget name="Hand_Card_Black_JPG" size="1.000000 1.571174" />
+    <ImageTarget name="Hand_Card_White_JPG" size="1.000000 1.571174" />
+    <ImageTarget name="Joker_Black" size="1.000000 1.402985" />
+    <ImageTarget name="Ace_of_Spades" size="1.000000 1.404568" />
+    <ImageTarget name="Card_Special_1_Back" size="1.000000 1.404814" />
+    <ImageTarget name="Card_Special_1" size="1.000000 1.404740" />
+    <ImageTarget name="Riderback_Blue" size="1.000000 1.401333" />
+  </Tracking>
+</QCARConfig>

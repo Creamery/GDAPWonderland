@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/_Scenes/Test_Candy.unity
+    guid: f33a7f57d11c82149a4013236d340cff
+  - enabled: 1
+    path: Assets/_Scenes/TitleScreen.unity
+    guid: 7d2b78d72f2c3dc4cb0dc3cefcef601b
+  - enabled: 0
+    path: Assets/_Scenes/TutorialPlay.unity
+    guid: fc109510fbec2974498fa52590e077f9
+  - enabled: 0
+    path: Assets/_Scenes/Test_Neil.unity
+    guid: 4cfb90ce278ad1c4cb0d2fbf5774b068
+  - enabled: 1
+    path: Assets/_Scenes/CharacterSelect.unity
+    guid: 681c3091ceded2646b03392370ab33d2
+  - enabled: 0
+    path: Assets/_Scenes/Test_Candy Arena.unity
+    guid: 51f57e7813ff1874789f1cc254f2155e
+  - enabled: 0
+    path: Assets/_Scenes/Test_Candy Arena 2.unity
+    guid: e4c1db6c833ebe44cba0316952020e64
+  - enabled: 0
+    path: Assets/_Scenes/GameScene_oldold.unity
+    guid: c50e49943a4bb0b448ecb9b2e19ea9b3
+  - enabled: 1
+    path: Assets/_Scenes/GameScene.unity
+    guid: 6b31f1c4232dab347875ad2800afe23b
+  m_configObjects: {}

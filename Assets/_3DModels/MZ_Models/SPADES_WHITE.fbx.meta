@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 0bd305a1db4c8ba47b526c702f61b2bd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cylinder.001
+    100004: //RootNode
+    100006: Sphere.003
+    100008: Sphere.004
+    100010: Sphere.008
+    100012: Torus.002
+    400000: Cube
+    400002: Cylinder.001
+    400004: //RootNode
+    400006: Sphere.003
+    400008: Sphere.004
+    400010: Sphere.008
+    400012: Torus.002
+    2100000: GoldDark.001
+    2100002: Hair
+    2100004: CoatShade
+    2100006: MaroonPolo
+    2100008: ClothesDark
+    2100010: GoldLight
+    2100012: GoldDark.002
+    2100014: Glove.003
+    2100016: GoldLight.001
+    2100018: Face
+    2100020: Flesh
+    2300000: Cube
+    2300002: Cylinder.001
+    2300004: Sphere.003
+    2300006: Sphere.004
+    2300008: Sphere.008
+    2300010: Torus.002
+    3300000: Cube
+    3300002: Cylinder.001
+    3300004: Sphere.003
+    3300006: Sphere.004
+    3300008: Sphere.008
+    3300010: Torus.002
+    4300000: Sphere.004
+    4300002: Sphere.008
+    4300004: Cube
+    4300006: Torus.002
+    4300008: Sphere.003
+    4300010: Cylinder.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ClothesDark
+    second: {fileID: 2100000, guid: 0316e897c6698814fa71b785fe038168, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CoatShade
+    second: {fileID: 2100000, guid: 4f297f7cb876e5c4cb31077c56eca299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: 56a48202f173c2547a253d79ba081800, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flesh
+    second: {fileID: 2100000, guid: 0fcb2d9b94faa8a40923adaced68c49b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glove.003
+    second: {fileID: 2100000, guid: 4a3999468e76a0b4ebaa6020b4753a0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldDark.001
+    second: {fileID: 2100000, guid: 18ea3b0b5a595cc438c486b67bcab79f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldDark.002
+    second: {fileID: 2100000, guid: a27d7f6b156cf634687660116908983d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldLight
+    second: {fileID: 2100000, guid: 88cd1bd33162073478584cb9ed384e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GoldLight.001
+    second: {fileID: 2100000, guid: 7a3fd2b755fe8ab4f82e65ac070782e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 2573a95d066b0dd48b4709ab0068f561, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaroonPolo
+    second: {fileID: 2100000, guid: 4d69d0c78ba875b43952d2031960b192, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TX_Head_Heart
+    second: {fileID: 2800000, guid: 13dd30e8af00dd74e807d1e571d9b3e1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TX_SPADE_WHITE_HEAD
+    second: {fileID: 2800000, guid: 01e51802745263d48aa3032e8d0aaf82, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 180
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
