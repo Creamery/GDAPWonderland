@@ -1,34 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CharacterFrame : CharacterFrameBase {
-    [SerializeField] protected SoldierName soldierName;
+	[SerializeField] protected TextMeshProUGUI supportTextValue;
+
+	[SerializeField] protected SoldierName soldierName;
     [SerializeField] protected SoldierQuote soldierQuote;
 
 
+	private void Start() {
+		ResetCharacterFrame();
+	}
 
-    /// <summary>
-    /// Load the card and change the image and text accordingly
-    /// </summary>
-    /// <param name="card"></param>
-    public override void LoadCard(Card card, bool isMultiple) {
-        //this.loadedCard = card;
+	/// <summary>
+	/// Load the card and change the image and text accordingly
+	/// </summary>
+	/// <param name="card"></param>
+	public override void LoadCard(Card card, bool hasSupport) {
 
-        // Change soldier name based on suit (in uppercase)
-        this.GetSoldierName().SetText(card.GetCardSuit().ToString().ToUpper());
+		ResetCharacterFrame();
 
-        // Change quote based on suit and player
-        if (isMultiple) {
-            this.GetSoldierQuote().SetText(Quotes.UI_DEFAULT_QUOTE_MULTI);
-        }
-        else {
-            this.GetSoldierQuote().SetText(Quotes.GetAttackUIQuote(
-                General.GetPlayerNo(MainScreenManager_GameScene.Instance.GetPlayer()),
-                card.GetCardSuit()));
-        }
+		//// Change soldier name based on suit (in uppercase)
+		//this.GetSoldierName().SetText(card.GetCardSuit().ToString().ToUpper());
 
-        this.HideAllSelectorAvatars();
+		this.GetAttackValue().SetText(card.GetCardHealth().ToString());
+
+		if (hasSupport) {
+			this.supportTextValue.SetText("?");
+		}
+		else {
+			this.supportTextValue.SetText("-");
+		}
+		
         // Enable the image based on suit and player
         switch (General.GetPlayerNo(MainScreenManager_GameScene.Instance.GetPlayer())) {
             case 1:

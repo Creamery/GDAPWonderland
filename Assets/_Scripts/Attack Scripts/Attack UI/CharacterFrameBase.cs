@@ -31,6 +31,11 @@ public class CharacterFrameBase : MonoBehaviour {
         }
     }
 
+	public void ResetCharacterFrame(string defaultText="-") {
+		HideAllSelectorAvatars();
+		ResetTextValue(defaultText);
+	}
+
     /// <summary>
     /// Hides the avatars from all selectors.
     /// </summary>
@@ -38,6 +43,14 @@ public class CharacterFrameBase : MonoBehaviour {
         this.GetWhiteSelector().HideAll();
         this.GetRedSelector().HideAll();
     }
+
+	/// <summary>
+	/// Resets the attached text component's value to "-", unless specified
+	/// </summary>
+	/// <param name="defaultText">optional parameter to specify default reset text value</param>
+	public void ResetTextValue(string defaultText="-") {
+		this.GetAttackValue().SetText(defaultText);
+	}
 
     /// <summary>
     /// White selector.
