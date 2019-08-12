@@ -45,7 +45,6 @@ public class UIHandCardRaycaster : MonoBehaviour {
 					UIHandCardManager.Instance.StopDragging();
 
 					// Hearts card was dropped -- Special Interaction
-
 					if (finalCard.GetCardSuit() == Card.Suit.HEARTS) { 
 						// Special interaction
 						int rank = finalCard.GetCardRank();
@@ -65,7 +64,7 @@ public class UIHandCardRaycaster : MonoBehaviour {
 								break;
 						}
 						curPlayer.GetCardManager().GetHandManager().RemoveFromHand(finalCard);
-
+						Debug.Log("<color='blue'> Hearts removed from hand </color>");
 						return;
 					}
 
