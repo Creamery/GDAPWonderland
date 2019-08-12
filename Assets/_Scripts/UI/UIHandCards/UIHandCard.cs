@@ -81,14 +81,16 @@ public class UIHandCard : MonoBehaviour{
 	}
 
 	public void EnableBonus(bool val) {
+		if (this.cardReference.GetCardSuit() == Card.Suit.HEARTS)
+			return;
+
 		if (val) {
-			GetCardAttackText().SetText((GetCardReference().GetCardAttack() + GameConstants.SkillValues.VORPAL_SWORD_BONUS).ToString());
-			GetCardHealthText().SetText((GetCardReference().GetCardHealth() + GameConstants.SkillValues.VORPAL_SWORD_BONUS).ToString());
+			int bonus = GameMaster.Instance.IsRuleHigher ? GameConstants.SkillValues.VORPAL_SWORD_BONUS : GameConstants.SkillValues.VORPAL_SWORD_BONUS * -1;
+			GetCardAttackText().SetText((GetCardReference().GetCardAttack() + bonus).ToString());
 			GetCardAttackText().GetTextMesh().color = POWERED; 
 		}
 		else {
 			GetCardAttackText().SetText(GetCardReference().GetCardAttack().ToString());
-			GetCardHealthText().SetText((GetCardReference().GetCardHealth().ToString()));
 			GetCardAttackText().GetTextMesh().color = DEFAULT;
 		}
 	}

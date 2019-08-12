@@ -16,8 +16,8 @@ public class RuleInfo {
 	public static Rules ToRuleEnum(string ruleText) {
 		ruleText = ruleText.ToLower().Trim();
 		switch (ruleText) {
-			case "lower": return Rules.HIGHER;
-			case "higher": return Rules.LOWER;
+			case "lower": return Rules.LOWER;
+			case "higher": return Rules.HIGHER;
 
 			case "movex2": return Rules.MOVEX2;
 			case "moved2": return Rules.MOVED2;

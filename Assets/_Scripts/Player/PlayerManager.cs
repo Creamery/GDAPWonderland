@@ -41,6 +41,8 @@ public class PlayerManager : MonoBehaviour {
 			
 		this.movesLeft = GameConstants.DEFAULT_MOVE_COUNT;
 
+		AcquireSkill();
+
 	}
 
 	private void Update() {

@@ -636,6 +636,8 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	private void SetAttackBonus(int val) {
+		// Set to +1 if enemys can be defeated with thigher attack, -1 if otherwise
+		val = this.IsRuleHigher ? val : val * -1;
 		CombatManager.Instance.SetAtkModifier(val);
 		UIHandCardManager.Instance.EnableBonus(true);
 	}

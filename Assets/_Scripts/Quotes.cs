@@ -43,7 +43,7 @@ public class Quotes {
 	public const string HERO_SKILL_HATTER = "MAD AS A HATTER";
 	public const string HERO_SKILL_CHESHIRE = "VANISH";
 
-	public const string HERO_SKILL_DESC_ALICE = "All cards in your HAND have +1 ATTACK for THIS TURN.";
+	public const string HERO_SKILL_DESC_ALICE = "All cards in your HAND have +1/-1 (depending on the rule) ATTACK for THIS TURN.";
 	public const string HERO_SKILL_DESC_HATTER = "TEST YOUR LUCK: RESPIN the ROULETTE.";
 	public const string HERO_SKILL_DESC_CHESHIRE = "Remove your enemy's skill charges.";
 
