@@ -14,6 +14,7 @@ public class SoldierHistoryModels : MonoBehaviour {
     [SerializeField] protected TargetWinObjectMarker targetWinLogo;
 
 
+	// Enable/disable these depending on the rule shown in the history entry
     [SerializeField] protected HighRuleObjectMarker ruleHighFront;
     [SerializeField] protected HighRuleObjectMarker ruleHighBack;
     [SerializeField] protected LowRuleObjectMarker ruleLowFront;
