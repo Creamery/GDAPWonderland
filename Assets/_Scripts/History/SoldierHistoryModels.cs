@@ -7,6 +7,7 @@ public class SoldierHistoryModels : MonoBehaviour {
     [SerializeField] protected TextMeshTeamLeadObjectMarker textTeamLead;
     [SerializeField] protected TextMeshTeamAssistObjectMarker textTeamAssist;
     [SerializeField] protected TeamWinObjectMarker teamWinLogo;
+	// TODO: only enable either team win or target win logo
 
     [SerializeField] protected TextMeshTargetLeadObjectMarker textTargetLead;
     [SerializeField] protected TextMeshTargetAssistObjectMarker textTargetAssist;
@@ -17,5 +18,7 @@ public class SoldierHistoryModels : MonoBehaviour {
     [SerializeField] protected HighRuleObjectMarker ruleHighBack;
     [SerializeField] protected LowRuleObjectMarker ruleLowFront;
     [SerializeField] protected LowRuleObjectMarker ruleLowBack;
+	
+	// TODO: Add Getters
 
 }

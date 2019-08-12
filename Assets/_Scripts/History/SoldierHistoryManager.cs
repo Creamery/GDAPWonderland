@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class SoldierHistoryManager : MonoBehaviour {
 
+	// Disable this to hide history
     [SerializeField] protected SoldierHistoryModels soldierHistoryModels;
+	// SoldierHistoryModels.SetText 
 }
