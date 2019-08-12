@@ -60,4 +60,17 @@ public class CharacterFrameBase : MonoBehaviour {
         }
         return this.redSelector;
     }
+
+
+    /// <summary>
+    /// Get text attack value
+    /// </summary>
+    /// <returns></returns>
+    public TextMeshProUGUI GetAttackValue() {
+        if (this.textAttackValue == null) {
+            this.textAttackValue = GetComponentInChildren<TextMeshProUGUI>();
+        }
+        return this.textAttackValue;
+    }
+
 }
