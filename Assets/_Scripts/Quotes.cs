@@ -12,8 +12,8 @@ public class Quotes {
     public const string UI_DEFAULT_QUOTE_HEARTS = "Which ones, sir? Point the camera to an enemy and press fire.";
 	public const string UI_DEFAULT_QUOTE_MULTI = "Together, we are stronger.  Point the camera to an enemy and press fire.";
 
-	public const string ANNOUNCEMENT_HIGHER = "Only attacks with the value greater than or equal to the target's defense are effective.";
-	public const string ANNOUNCEMENT_LOWER = "Only attacks with the value less than or equal to the target's defense are effective.";
+	public const string ANNOUNCEMENT_HIGHER = "HIGHER VALUE WINS";
+	public const string ANNOUNCEMENT_LOWER = "LOWER VALUE WINS";
 
 	public const string ANNOUNCEMENT_RED_CARDS_ONLY = "Only cards marked by a HEART or DIAMOND can be used this turn. We wish for strict compliance. All violators will be burned.";
     public const string ANNOUNCEMENT_WHITE_CARDS_ONLY = "Only cards marked as SPADES or CLUBS can be used this turn. We wish for strict compliance. All violators will be burned.";
@@ -23,8 +23,8 @@ public class Quotes {
 	public const string ANNOUNCEMENT_REPLENISH_DEFENSE = "We must reinforce our defenses. Replenish our missing defense by a random number.";
 	public const string ANNOUNCEMENT_REPLENISH_DECK = "The armory has been resupplied. Replenish the deck.";
 
-	public const string ANNOUNCEMENT_BOMB = "Pyrotechnics are necessary for celebrations. We are granted a bomb charge.";
-	public const string ANNOUNCEMENT_SUMMON = "The hero has arrived. We are granted hero skill charges.";
+	public const string ANNOUNCEMENT_BOMB = "YOU GOT A BOMB";
+	public const string ANNOUNCEMENT_SUMMON = "HERO POWER READY";
 	public const string ANNOUNCEMENT_MOVEP2 = "You are given 2 extra moves this turn.";
 	public const string ANNOUNCEMENT_MOVEP3 = "You are given 3 extra moves this turn.";
 	public const string ANNOUNCEMENT_MOVEP4 = "You are given 4 extra moves this turn.";
