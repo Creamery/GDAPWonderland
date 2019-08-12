@@ -6,14 +6,14 @@ using TMPro;
 
 public class UIHandCard : MonoBehaviour{
 
-	Color DEFAULT = new Color(188, 0, 210);
+    readonly Color DEFAULT = new Color(188, 0, 210);
 	readonly Color POWERED = Color.red;
 
 
-    readonly Color CLUBS = new Color(73, 239, 33);
-    readonly Color DIAMONDS = new Color(252, 51, 101);
-    readonly Color SPADES = new Color(238, 81, 255);
-    readonly Color HEARTS = new Color(66, 236, 232);
+    readonly Color CLUBS = new Color32(73, 239, 33, 255);
+    readonly Color DIAMONDS = new Color32(252, 51, 101, 255);
+    readonly Color SPADES = new Color32(238, 81, 255, 255);
+    readonly Color HEARTS = new Color32(66, 236, 232, 255);
 
     private Card cardReference;
 	[SerializeField] private CardAttackText cardAttack;
@@ -42,29 +42,31 @@ public class UIHandCard : MonoBehaviour{
 		return this.cardHealth;
 	}
 
+    public void recolorText(Card.Suit suit) {
+        this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
+        switch (suit) {
+            case Card.Suit.CLUBS:
+                this.GetCardAttackText().GetTextMesh().color = CLUBS;
+                break;
+            case Card.Suit.SPADES:
+                this.GetCardAttackText().GetTextMesh().color = SPADES;
+                break;
+            case Card.Suit.HEARTS:
+                this.GetCardAttackText().GetTextMesh().color = HEARTS;
+                break;
+            case Card.Suit.DIAMONDS:
+                this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
+                break;
+        }
+    }
+
 	public void UpdateCardValues() {
 		if (this.GetCardReference() != null) {
 			Card c = GetCardReference();
 			cardBase.sprite = General.GetCardSprite(c.GetCardSuit(), MainScreenManager_GameScene.Instance.GetPlayer().playerNo, c.GetCardRank());
-            
-            this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
 
-            switch (c.GetCardSuit()) {
-                case Card.Suit.CLUBS:
-                    DEFAULT = CLUBS;
-                    break;
-                case Card.Suit.SPADES:
-                    DEFAULT = SPADES;
-                    break;
-                case Card.Suit.HEARTS:
-                    DEFAULT = HEARTS;
-                    break;
-                case Card.Suit.DIAMONDS:
-                    DEFAULT = DIAMONDS;
-                    break;
-            }
-
-            GetCardAttackText().GetTextMesh().color = DEFAULT;
+            this.recolorText(c.GetCardSuit());
+            // GetCardAttackText().GetTextMesh().color = DEFAULT;
 
             this.GetCardAttackText().SetText(c.GetCardAttack().ToString());
 			this.GetCardHealthText().SetText(c.GetCardHealth().ToString());
@@ -118,7 +120,8 @@ public class UIHandCard : MonoBehaviour{
 		else {
 			GetCardAttackText().SetText(GetCardReference().GetCardAttack().ToString());
 			GetCardAttackText().GetTextMesh().color = DEFAULT;
-		}
+            this.recolorText(GetCardReference().GetCardSuit());
+        }
 	}
 
 	private void SetAlpha(Image comp, float newAlpha) {
