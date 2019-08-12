@@ -571,7 +571,6 @@ public class GameMaster : MonoBehaviour {
 
 	private void Bomb() {
         this.GetCurPlayer().AcquireBomb();
-		GetCurPlayer().IncrementMove();
 		PlayerPanel.Instance.RefreshData();
         MainScreenManager_EventScreen.Instance.ShowAnnouncement(Rules.BOMB);
 
@@ -579,7 +578,6 @@ public class GameMaster : MonoBehaviour {
 
 	private void Summon() {
 		this.GetCurPlayer().AcquireSkill();
-		GetCurPlayer().IncrementMove();
 		PlayerPanel.Instance.RefreshData();
 		MainScreenManager_EventScreen.Instance.ShowAnnouncement(Rules.SUMMON);
     }

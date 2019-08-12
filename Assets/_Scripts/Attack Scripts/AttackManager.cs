@@ -82,21 +82,16 @@ public class AttackManager : MonoBehaviour {
     /// <returns>true if loading is successful, false if not</returns>
     public bool LoadCard(Card card) {
         if(card != null && !this.isScanning) {
+			// First card loaded
+			
 			UIHandCardManager.Instance.PeekDown(true);
 			SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
-
-			//switch (card.GetCardSuit()) {
-			//	case Card.Suit.CLUBS: pc.Activate(ParticleController.CLUBS); break;
-			//	case Card.Suit.HEARTS: pc.Activate(ParticleController.HEARTS); break;
-			//	case Card.Suit.DIAMONDS: pc.Activate(ParticleController.DIAMONDS); break;
-			//	case Card.Suit.SPADES: pc.Activate(ParticleController.SPADES); break;
-			//}
 
             AttackManagerUI.Instance.LoadCard(card);
 			loadedBullets.Add(card);
 			UIHandCardManager.Instance.HideCard(card);
             //this.cardBullet = card;
-			this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
+			//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
 			//this.cardAttack.SetText((cardBullet.GetCardAttack()+ CombatManager.Instance.GetAtkModifier()).ToString());
             this.StartScan();
 			cancelBtn.interactable = true;
@@ -111,13 +106,20 @@ public class AttackManager : MonoBehaviour {
             return false;
         }
         else if(this.isScanning) {
-			//Combine Bullet
+			//Combine Bullet (second card and so on...)
+
+			// Check if loaded cards does not exceed maximum
+			if (loadedBullets.Count >= GameConstants.MAX_ATTACK_COMBINATION) {
+				SoundManager.Instance.Play(AudibleNames.Crosshair.MISS);
+				return false;
+			}
+
 			SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
 			//pc.ChangeColor(ParticleController.COMBI);
 			AttackManagerUI.Instance.LoadCard(card, true);
 			UIHandCardManager.Instance.HideCard(card);
 			loadedBullets.Add(card);
-			this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
+			//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
 
 			BackgroundRaycaster.Instance.ResetBackupMat();  // Hide the backup mat
 			return true;
@@ -126,7 +128,7 @@ public class AttackManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// This method removes the currently loaded card and stops the scanning coroutine.
+    /// This method removes the currently loaded cards and stops the scanning coroutine.
     /// </summary>
     public void UnloadCard() {
 		//pc.Stop();
@@ -135,7 +137,10 @@ public class AttackManager : MonoBehaviour {
 
         SoundManager.Instance.Play(AudibleNames.Button.CANCEL);
 		UIHandCardManager.Instance.UnhideAllCards();
+
+		AttackManagerUI.Instance.UnloadCard();
 		// UIHandCardManager.Instance.PeekDown(false);
+		//this.cardAttack.SetText("-");
 		this.loadedBullets.Clear();
         //this.cardBullet = null;
         this.StopScan();

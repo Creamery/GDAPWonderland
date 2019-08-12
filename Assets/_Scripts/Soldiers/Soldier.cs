@@ -86,10 +86,8 @@ public class Soldier : MonoBehaviour {
 
 
 	public int GetReinforcedHealth() {
-		int thisIndex = this.parent.FindSoldierIndex(this);
-
 		int thisBackupHealth = 0;
-		SoldierBackup thisBackup = this.parent.GetSoldierBackup(thisIndex);
+		SoldierBackup thisBackup = this.GetBackup();
 		if (thisBackup.GetCard() != null)
 			thisBackupHealth = thisBackup.GetCard().GetCardHealth();
 
@@ -127,9 +125,7 @@ public class Soldier : MonoBehaviour {
             this.GetHeartModel().Hide();
         }
 		// NEW	8/9/2019
-		int thisIndex = this.parent.FindSoldierIndex(this);
-		
-		SoldierBackup thisBackup = this.parent.GetSoldierBackup(thisIndex);
+		SoldierBackup thisBackup = this.GetBackup();
 		if (thisBackup != null)
 			thisBackup.RemoveCard();
 		// END OF NEW 8/9/2019
@@ -218,6 +214,13 @@ public class Soldier : MonoBehaviour {
 			this.outline = GetComponentInChildren<OutlinedModel>();
 		}
 		return this.outline;
+	}
+
+	public SoldierBackup GetBackup() {
+		int thisIndex = this.parent.FindSoldierIndex(this);
+
+		SoldierBackup thisBackup = this.parent.GetSoldierBackup(thisIndex);
+		return thisBackup;
 	}
 
 	public Card GetCardReference() {

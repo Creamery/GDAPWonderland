@@ -13,4 +13,5 @@ public class CharacterFrameAssist : CharacterFrameBase {
 
         this.GetAttackValue().SetText("" + card.GetCardAttack());
     }
+	
 }

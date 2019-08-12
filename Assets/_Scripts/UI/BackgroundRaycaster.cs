@@ -172,6 +172,9 @@ public class BackgroundRaycaster : MonoBehaviour {
 				this.previousSoldier.EnableOutline(false);
 
 			newTarget.EnableOutline(true);
+			bool hasSupport = newTarget.GetBackup().GetCard() != null ? true : false;
+			AttackManagerUI.Instance.GetEnemyCharacterFrame().LoadCard(newTarget.GetCardReference(), hasSupport);
+
 			this.previousSoldier = newTarget;
 
 			if (previousLOC != null)

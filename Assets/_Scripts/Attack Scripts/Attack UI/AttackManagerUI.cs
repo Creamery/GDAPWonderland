@@ -5,7 +5,9 @@ using UnityEngine;
 public class AttackManagerUI : MonoBehaviour {
 
     [SerializeField] private Card loadedCard;
-    [SerializeField] private CharacterFrame characterFrame;
+	// Refers to the target's character frame
+    [SerializeField] private CharacterFrame enemyCharacterFrame;
+	// Refers to the attacker's team character frame
     [SerializeField] private CharacterFrameLead characterFrameLead;
     [SerializeField] private CharacterFrameAssist characterFrameAssist;
 
@@ -20,6 +22,7 @@ public class AttackManagerUI : MonoBehaviour {
 
     void Awake() {
         sharedInstance = this;
+		UnloadCard();
     }
 
 
@@ -58,15 +61,23 @@ public class AttackManagerUI : MonoBehaviour {
         this.GetWeaponChanger().ChangeWeapon(card);
     }
 
+	/// <summary>
+	/// Removes/Resets the UI components enabled from loading the/a card(s)
+	/// </summary>
+	public void UnloadCard() {
+		this.GetCharacterFrameAssist().ResetCharacterFrame();
+		this.GetCharacterFrameLead().ResetCharacterFrame();
+	}
+
     /// <summary>
     /// Character frame getter for target.
     /// </summary>
     /// <returns></returns>
-    public CharacterFrame GetCharacterFrame() {
-        if(this.characterFrame == null) {
-            this.characterFrame = GetComponentInChildren<CharacterFrame>();
+    public CharacterFrame GetEnemyCharacterFrame() {
+        if(this.enemyCharacterFrame == null) {
+            this.enemyCharacterFrame = GetComponentInChildren<CharacterFrame>();
         }
-        return this.characterFrame;
+        return this.enemyCharacterFrame;
     }
 
     /// <summary>

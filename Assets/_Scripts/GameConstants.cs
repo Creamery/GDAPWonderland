@@ -78,4 +78,6 @@ public class GameConstants {
 
 	public const int MIN_REMOVE_CARDS = 1;
 	public const int MAX_REMOVE_CARDS = 3;
+
+	public const int MAX_ATTACK_COMBINATION = 2;
 }
