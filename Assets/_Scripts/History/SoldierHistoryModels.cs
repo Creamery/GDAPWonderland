@@ -13,6 +13,9 @@ public class SoldierHistoryModels : MonoBehaviour {
     [SerializeField] protected TargetWinObjectMarker targetWinLogo;
 
 
-
+    [SerializeField] protected HighRuleObjectMarker ruleHighFront;
+    [SerializeField] protected HighRuleObjectMarker ruleHighBack;
+    [SerializeField] protected LowRuleObjectMarker ruleLowFront;
+    [SerializeField] protected LowRuleObjectMarker ruleLowBack;
 
 }
