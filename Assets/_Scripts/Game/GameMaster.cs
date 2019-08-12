@@ -409,11 +409,15 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	public void NextPlayer() {
+		//TODO: GetCurPlayer Hide Soldier History
+
 		if (playerTurn == player1)
 			SetPlayerTurn(player2);
 		else
 			SetPlayerTurn(player1);
 		GetCurPlayer().RefreshMoveCount();
+		//TODO: GetCurPlayer Show Soldier History
+		// within Soldier History: Only show when has content.
 	}
 	#endregion
 
