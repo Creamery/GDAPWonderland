@@ -20,6 +20,7 @@ public static class General {
     public const string DIR_EVENT_ICON = "Events/";
     public const string DIR_ATTACK_WEAPON_ICON = "ButtonWeapons/";
 
+	public const string DIR_MATERIALS = "Materials/";
 
     public const string DIR_LIFE_MATERIAL = "PlayerLife/Materials/";
 
@@ -136,6 +137,10 @@ public static class General {
 			default: throw new System.Exception("Invalid playerno: " + playerNo + "! Should only be either '1' or '2'."); 
 		}
 		return GetSprite(DIR_CARD_SPRITE + colorDir + suit + "_" + color + "_" + rank);
+	}
+
+	public static Material GetMaterial(string materialName) {
+		return Resources.Load<Material>(DIR_MATERIALS+materialName);
 	}
 
 	//public static Sprite GetHeroImage(Hero.Type hero) {
