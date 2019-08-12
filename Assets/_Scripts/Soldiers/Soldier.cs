@@ -49,9 +49,8 @@ public class Soldier : MonoBehaviour {
 	/// (Possibly by AttackManager.cs)
 	/// </summary>
 	/// <param name="damage"></param>
-	public void TakeDamage(int damage) {
+	public void TakeDamage(int damage, bool isRuleHigher) {
 		//bool isRuleHigher = GameMaster.IsHigher;
-		bool isRuleHigher = true;
 		if (isRuleHigher) {
 			if (damage >=  this.GetReinforcedHealth()) {
 				this.currentHealth = 0;

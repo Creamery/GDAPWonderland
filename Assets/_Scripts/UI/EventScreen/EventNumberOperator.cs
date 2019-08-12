@@ -8,6 +8,8 @@ public class EventNumberOperator : ObjectMarker {
     [SerializeField] private EventOperatorPlusMarker plusOperator;
     [SerializeField] private EventOperatorTimesMarker timesOperator;
     [SerializeField] private EventOperatorDivideMarker divideOperator;
+	[SerializeField] private EventOperatorHigherMarker higherMarker;
+	[SerializeField] private EventOperatorLowerMarker lowerMarker;
 
 
 
@@ -28,10 +30,22 @@ public class EventNumberOperator : ObjectMarker {
         this.GetDivideMarker().Show();
     }
 
+	public void ShowHigher() {
+		this.HideAll();
+		this.GetHigherMarker().Show();
+	}
+
+	public void ShowLower() {
+		this.HideAll();
+		this.GetLowerMarker().Show();
+	}
+
     public void HideAll() {
         this.GetPlusMarker().Hide();
         this.GetTimesMarker().Hide();
         this.GetDivideMarker().Hide();
+		this.GetHigherMarker().Hide();
+		this.GetLowerMarker().Hide();
     }
 
     public EventOperatorPlusMarker GetPlusMarker() {
@@ -52,4 +66,16 @@ public class EventNumberOperator : ObjectMarker {
         }
         return this.divideOperator;
     }
+	public EventOperatorHigherMarker GetHigherMarker() {
+		if (this.higherMarker == null) {
+			this.higherMarker = GetComponentInChildren<EventOperatorHigherMarker>();
+		}
+		return this.higherMarker;
+	}
+	public EventOperatorLowerMarker GetLowerMarker() {
+		if (this.lowerMarker == null) {
+			this.lowerMarker = GetComponentInChildren<EventOperatorLowerMarker>();
+		}
+		return this.lowerMarker;
+	}
 }

@@ -5,6 +5,13 @@ using UnityEngine;
 public class AnnouncementTextObjectMarker : TextObjectMarker {
     public void SetText(Rules rule) {
         switch (rule) {
+			case Rules.HIGHER:
+				this.SetText(Quotes.ANNOUNCEMENT_HIGHER);
+				break;
+			case Rules.LOWER:
+				this.SetText(Quotes.ANNOUNCEMENT_LOWER);
+				break;
+
             case Rules.RED_CARDS_ONLY:
                 this.SetText(Quotes.ANNOUNCEMENT_RED_CARDS_ONLY);
                 break;

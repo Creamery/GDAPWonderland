@@ -38,9 +38,7 @@ public class PlayerManager : MonoBehaviour {
 
 		if (playerHero.GetHero().Equals(Hero.Type.DEFAULT))
 			playerHero = new Hero(Hero.Type.ALICE);
-
-		AcquireSkill();
-		AcquireBomb();
+			
 		this.movesLeft = GameConstants.DEFAULT_MOVE_COUNT;
 
 	}
@@ -127,6 +125,7 @@ public class PlayerManager : MonoBehaviour {
     public void RefreshMoveCount() {
 		//SetMovesLeft(this.movesLeft + GameConstants.DEFAULT_MOVE_INCREMENT);
 		// Do nothing.
+		SetMovesLeft(GameConstants.DEFAULT_MOVE_COUNT);
     }
 
 	public void UseHeroPower() {

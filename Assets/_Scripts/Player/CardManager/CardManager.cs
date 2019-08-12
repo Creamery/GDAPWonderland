@@ -163,6 +163,7 @@ public class CardManager : MonoBehaviour {
 				this.GetDefenseManager().ReplenishBackDefense(i-3, c, false);
 			}
 		}
+		this.GetDeckManager().ShuffleDeck();
 		this.GetDefenseManager().PostDefenseUpdate();
 	}
 
@@ -186,6 +187,7 @@ public class CardManager : MonoBehaviour {
 			this.GetDefenseManager().ReplenishBackDefense(i, c, false);
 			//Debug.Log("<color='green'> Replenish Backup #" + i + " with: " + c.GetCardSuit() + " Rank " + c.GetCardRank() + "</color>");
 		}
+		this.GetDeckManager().ShuffleDeck();
 		this.GetDefenseManager().PostDefenseUpdate();
 	}
 
@@ -226,6 +228,7 @@ public class CardManager : MonoBehaviour {
 			if (backCards[i] == null)
 				dm.ReplenishBackDefense(i, c);
 		}
+		deckM.ShuffleDeck();
 	}
 	#endregion
 

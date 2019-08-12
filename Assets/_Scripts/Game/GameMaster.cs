@@ -33,6 +33,7 @@ public class GameMaster : MonoBehaviour {
 	private bool hasSpun;
 	private bool hasEventSettled;
 	private bool hasVerifiedPlayer;
+	private bool isRuleHigher;
 
 	private Coroutine currentCoroutine;
 
@@ -40,6 +41,10 @@ public class GameMaster : MonoBehaviour {
     public static GameMaster Instance {
         get { return sharedInstance; }
     }
+
+	public bool IsRuleHigher {
+		get { return this.isRuleHigher; }
+	}
 
 	void Awake() {
         sharedInstance = this;
@@ -411,6 +416,15 @@ public class GameMaster : MonoBehaviour {
 	#region Roulette Events
 	private void HandleRouletteEvent(Rules rule) {
         switch (rule) {
+			case Rules.HIGHER:
+				this.isRuleHigher = true;
+				MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule);
+				break;
+			case Rules.LOWER:
+				this.isRuleHigher = false;
+				MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule);
+				break;
+
 			case Rules.MOVED2:
 				MoveEvent(2, "divide");
 				break;

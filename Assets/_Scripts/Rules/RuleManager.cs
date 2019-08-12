@@ -16,6 +16,9 @@ public class RuleInfo {
 	public static Rules ToRuleEnum(string ruleText) {
 		ruleText = ruleText.ToLower().Trim();
 		switch (ruleText) {
+			case "lower": return Rules.HIGHER;
+			case "higher": return Rules.LOWER;
+
 			case "movex2": return Rules.MOVEX2;
 			case "moved2": return Rules.MOVED2;
 			case "movep2": return Rules.MOVEP2;
@@ -42,6 +45,7 @@ public class RuleInfo {
 
 public enum Rules {
     UNKNOWN,
+	HIGHER, LOWER,
 	MOVEX2, MOVED2, MOVEP2, MOVEP3, MOVEP4, MOVEP5,
 	STRDEF, STRHAND,
 	BOMB, SUMMON,
@@ -54,6 +58,8 @@ public enum Rules {
 public static class RulesExtensions {
 	public static string ToRuleText(this Rules rule) {
 		switch (rule) {
+			case Rules.HIGHER: return "Higher attack damage is effective against defendants";
+			case Rules.LOWER: return "Lower attack damage is effective against defendants";
 			case Rules.RED_CARDS_ONLY: return "Hearts or Diamonds Only";
 			case Rules.WHITE_CARDS_ONLY: return "Spades or Clubs Only";
 			case Rules.EAT_ME: return "Your Defenses increased by 1";

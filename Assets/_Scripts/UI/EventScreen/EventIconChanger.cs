@@ -22,7 +22,11 @@ public class EventIconChanger : MonoBehaviour {
     private Color32 colorAttack = new Color32(0, 183, 183, 255);
     private Color32 colorTransparent = new Color32(255, 255, 255, 0);
 
-    private const string TITLE_ATTACK_UP = "title_Attack Up";
+	private const string TITLE_HIGHER = "title_higher";
+	private const string TITLE_LOWER = "title_lower";
+
+
+	private const string TITLE_ATTACK_UP = "title_Attack Up";
     private const string TITLE_DEFENSE_UP = "title_Defense Up";
     private const string TITLE_BOMB_GET = "title_Bomb Get";
     private const string TITLE_SKILL_GET = "title_Skill Get";
@@ -37,8 +41,21 @@ public class EventIconChanger : MonoBehaviour {
         this.GetEventMoveChange().HideAll();
         this.GetEventItemGet().HideAll();
         switch (rule) {
-            // Move plus
-            case Rules.MOVEP2:
+			// Rule Higher
+			case Rules.HIGHER:
+				this.changeBarColor(colorTimes);
+				this.GetEventTitleBar().GetImage().sprite = General.GetEventIconSprite(TITLE_HIGHER);
+				this.GetEventMoveChange().setMoves(rule);
+				break;
+			// Rule Lower
+			case Rules.LOWER:
+				this.changeBarColor(colorDivide);
+				this.GetEventTitleBar().GetImage().sprite = General.GetEventIconSprite(TITLE_LOWER);
+				this.GetEventMoveChange().setMoves(rule);
+				break;
+
+			// Move plus
+			case Rules.MOVEP2:
                 this.changeBarColor(colorPlus);
                 this.GetEventTitleBar().GetImage().sprite = General.GetEventIconSprite(TITLE_MOVE_INCREASED);
                 this.GetEventMoveChange().setMoves(rule);
