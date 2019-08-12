@@ -51,8 +51,8 @@ public class UIHandCardRaycaster : MonoBehaviour {
 						int rank = finalCard.GetCardRank();
 						switch (rank) {
 							case 1: // +1 move
-								// Show Increment Move UI
 								curPlayer.IncrementMove();
+								ActionsLeftPanel.Instance.Show();
 								Debug.Log("<color='green'> move incremented by 1 </color>");
 								break;
 							case 2: // Swap rule
