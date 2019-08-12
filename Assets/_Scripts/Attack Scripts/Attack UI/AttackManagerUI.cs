@@ -6,6 +6,9 @@ public class AttackManagerUI : MonoBehaviour {
 
     [SerializeField] private Card loadedCard;
     [SerializeField] private CharacterFrame characterFrame;
+    [SerializeField] private CharacterFrameLead characterFrameLead;
+    [SerializeField] private CharacterFrameAssist characterFrameAssist;
+
     [SerializeField] private AttackButtonWeaponChanger weaponChanger;
 
     [SerializeField] private PlayerSensitiveObjectManager playerSensitiveManager;
@@ -43,12 +46,20 @@ public class AttackManagerUI : MonoBehaviour {
 	public void LoadCard(Card card, bool isMultiple = false) {
         this.GetPlayerSensitiveManager().RefreshMarkers();
         this.SetLoadedCard(card);
-        this.GetCharacterFrame().LoadCard(this.GetLoadedCard(),isMultiple);
+
+        // this.GetCharacterFrame().LoadCard(this.GetLoadedCard(), isMultiple); // TODO Change to lead or assist
+        if(isMultiple) {
+            this.GetCharacterFrameAssist().LoadCard(this.GetLoadedCard(), isMultiple); // Change to assist : TODO Cap to 2 cards
+        }
+        else {
+            this.GetCharacterFrameLead().LoadCard(this.GetLoadedCard(), isMultiple); // Change to lead
+        }
+
         this.GetWeaponChanger().ChangeWeapon(card);
     }
 
     /// <summary>
-    /// Character frame getter.
+    /// Character frame getter for target.
     /// </summary>
     /// <returns></returns>
     public CharacterFrame GetCharacterFrame() {
@@ -56,6 +67,28 @@ public class AttackManagerUI : MonoBehaviour {
             this.characterFrame = GetComponentInChildren<CharacterFrame>();
         }
         return this.characterFrame;
+    }
+
+    /// <summary>
+    /// Character frame getter for lead.
+    /// </summary>
+    /// <returns></returns>
+    public CharacterFrameLead GetCharacterFrameLead() {
+        if (this.characterFrameLead == null) {
+            this.characterFrameLead = GetComponentInChildren<CharacterFrameLead>();
+        }
+        return this.characterFrameLead;
+    }
+
+    /// <summary>
+    /// Character frame getter for assist.
+    /// </summary>
+    /// <returns></returns>
+    public CharacterFrameAssist GetCharacterFrameAssist() {
+        if (this.characterFrameAssist == null) {
+            this.characterFrameAssist = GetComponentInChildren<CharacterFrameAssist>();
+        }
+        return this.characterFrameAssist;
     }
 
     public AttackButtonWeaponChanger GetWeaponChanger() {
