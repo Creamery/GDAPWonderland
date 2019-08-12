@@ -1260,13 +1260,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4610991014745484}
+  - component: {fileID: 114924193059876228}
   m_Layer: 2
   m_Name: LogoModel
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1348679408064134
 GameObject:
   m_ObjectHideFlags: 1
@@ -3480,6 +3481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4278589427165294}
+  - component: {fileID: 114307252369861704}
   m_Layer: 2
   m_Name: LogoModel
   m_TagString: Untagged
@@ -14965,8 +14967,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTeamLead: {fileID: 114616423511466802}
   textTeamAssist: {fileID: 114813330116848676}
+  teamWinLogo: {fileID: 114307252369861704}
   textTargetLead: {fileID: 114817734308636548}
   textTargetAssist: {fileID: 114664982541233362}
+  targetWinLogo: {fileID: 114924193059876228}
+--- !u!114 &114307252369861704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999662176196556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ba962771ac2bf47b5a9dd25704b9ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114429112912563100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15709,6 +15724,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &114924193059876228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346661507875186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe9137f1361d344a90071cb47a3d57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222005992880320138
 CanvasRenderer:
   m_ObjectHideFlags: 1
