@@ -38,7 +38,8 @@ public class HandManager : MonoBehaviour {
 	/// <returns>the index of the card removed</returns>
 	public int RemoveFromHand(Card usedCard) {
 		int index = GetCardIndex(usedCard);
-		this.GetHandCards ().Remove (usedCard);
+		this.GetHandCards().Remove(usedCard);
+		//TODO: put to graveyard
 		this.PostHandCardEvent();
 		return index;
     }

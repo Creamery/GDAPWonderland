@@ -64,6 +64,7 @@ public class UIHandCardRaycaster : MonoBehaviour {
 							default: //Do nothing
 								break;
 						}
+						curPlayer.GetCardManager().GetHandManager().RemoveFromHand(finalCard);
 
 						return;
 					}
