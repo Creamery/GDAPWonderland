@@ -368,6 +368,10 @@ public class GameMaster : MonoBehaviour {
     #endregion
 
     #region Setters
+	public void SwapHigherLower() {
+		this.isRuleHigher = !isRuleHigher;
+	}
+
     public void SetHasSpun(bool val) {
 		this.hasSpun = val;
 	}

@@ -42,8 +42,33 @@ public class UIHandCardRaycaster : MonoBehaviour {
 
 				bool replenishDefenseMode = GameMaster.Instance.IsReplenishMode();
 				if (this.GRGeneral("OutZone")) {
-					// Differentiate Defense interactions w/ Bullet-loadings
 					UIHandCardManager.Instance.StopDragging();
+
+					// Hearts card was dropped -- Special Interaction
+
+					if (finalCard.GetCardSuit() == Card.Suit.HEARTS) { 
+						// Special interaction
+						int rank = finalCard.GetCardRank();
+						switch (rank) {
+							case 1: // +1 move
+								curPlayer.IncrementMove();
+								ActionsLeftPanel.Instance.Show();
+								Debug.Log("<color='green'> move incremented by 1 </color>");
+								break;
+							case 2: // Swap rule
+									// Show Rule (higher/lower) has been swapped UI
+								bool prevRule = GameMaster.Instance.IsRuleHigher;
+								GameMaster.Instance.SwapHigherLower();
+								Debug.Log("<color='green'> RULE SWAPPED: "+prevRule+"->"+GameMaster.Instance.IsRuleHigher+" </color>");
+								break;
+							default: //Do nothing
+								break;
+						}
+
+						return;
+					}
+
+					// Differentiate Defense interactions w/ Bullet-loadings
 					GameObject hit = PRGeneral("Soldier");
 					if (replenishDefenseMode) {	// REPLENISH DEFENSE MDOE INTERACTIONS ((TODO: might want to remove this))
 						if (hit != null) {
