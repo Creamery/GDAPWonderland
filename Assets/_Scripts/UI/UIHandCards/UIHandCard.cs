@@ -6,10 +6,16 @@ using TMPro;
 
 public class UIHandCard : MonoBehaviour{
 
-	readonly Color DEFAULT = new Color(188, 0, 210);
+	Color DEFAULT = new Color(188, 0, 210);
 	readonly Color POWERED = Color.red;
 
-	private Card cardReference;
+
+    readonly Color CLUBS = new Color(73, 239, 33);
+    readonly Color DIAMONDS = new Color(252, 51, 101);
+    readonly Color SPADES = new Color(238, 81, 255);
+    readonly Color HEARTS = new Color(66, 236, 232);
+
+    private Card cardReference;
 	[SerializeField] private CardAttackText cardAttack;
 	[SerializeField] private CardHealthText cardHealth;
 	[SerializeField] private Image cardBase;
@@ -40,7 +46,27 @@ public class UIHandCard : MonoBehaviour{
 		if (this.GetCardReference() != null) {
 			Card c = GetCardReference();
 			cardBase.sprite = General.GetCardSprite(c.GetCardSuit(), MainScreenManager_GameScene.Instance.GetPlayer().playerNo, c.GetCardRank());
-			this.GetCardAttackText().SetText(c.GetCardAttack().ToString());
+            
+            this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
+
+            switch (c.GetCardSuit()) {
+                case Card.Suit.CLUBS:
+                    DEFAULT = CLUBS;
+                    break;
+                case Card.Suit.SPADES:
+                    DEFAULT = SPADES;
+                    break;
+                case Card.Suit.HEARTS:
+                    DEFAULT = HEARTS;
+                    break;
+                case Card.Suit.DIAMONDS:
+                    DEFAULT = DIAMONDS;
+                    break;
+            }
+
+            GetCardAttackText().GetTextMesh().color = DEFAULT;
+
+            this.GetCardAttackText().SetText(c.GetCardAttack().ToString());
 			this.GetCardHealthText().SetText(c.GetCardHealth().ToString());
 			EnableBonus(GetComponentInParent<UIHandCardManager>().IsPoweredUp);
 		}
