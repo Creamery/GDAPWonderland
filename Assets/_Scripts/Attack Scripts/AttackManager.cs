@@ -81,50 +81,51 @@ public class AttackManager : MonoBehaviour {
     /// <param name="card"></param>
     /// <returns>true if loading is successful, false if not</returns>
     public bool LoadCard(Card card) {
-        if(card != null && !this.isScanning) {
-			// First card loaded
-			
-			UIHandCardManager.Instance.PeekDown(true);
-			SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
+		if (card != null) {
+			if (!this.isScanning) {
 
-            AttackManagerUI.Instance.LoadCard(card);
-			loadedBullets.Add(card);
-			UIHandCardManager.Instance.HideCard(card);
-            //this.cardBullet = card;
-			//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
-			//this.cardAttack.SetText((cardBullet.GetCardAttack()+ CombatManager.Instance.GetAtkModifier()).ToString());
-            this.StartScan();
-			cancelBtn.interactable = true;
+				// First card loaded
+				UIHandCardManager.Instance.PeekDown(true);
+				SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
 
-			BackgroundRaycaster.Instance.ResetBackupMat();	// Hide the backup mat
-            Debug.Log("Card Loaded:: Atk: " + card.GetCardAttack() + " | Health: " + card.GetCardHealth()+" | SUIT: "+card.GetCardSuit());
-           
-            return true;
-        }
-        else if(card == null) {
-            Debug.LogError("ERROR: No bullet to load!");
-            return false;
-        }
-        else if(this.isScanning) {
-			//Combine Bullet (second card and so on...)
+				AttackManagerUI.Instance.LoadCard(card);
+				loadedBullets.Add(card);
+				UIHandCardManager.Instance.HideCard(card);
+				//this.cardBullet = card;
+				//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
+				//this.cardAttack.SetText((cardBullet.GetCardAttack()+ CombatManager.Instance.GetAtkModifier()).ToString());
+				this.StartScan();
+				cancelBtn.interactable = true;
 
-			// Check if loaded cards does not exceed maximum
-			if (loadedBullets.Count >= GameConstants.MAX_ATTACK_COMBINATION) {
-				SoundManager.Instance.Play(AudibleNames.Crosshair.MISS);
-				return false;
+				BackgroundRaycaster.Instance.ResetBackupMat();  // Hide the backup mat
+				Debug.Log("Card Loaded:: Atk: " + card.GetCardAttack() + " | Health: " + card.GetCardHealth() + " | SUIT: " + card.GetCardSuit());
+
+				return true;
 			}
+			else {
+				//Combine Bullet (second card and so on...)
 
-			SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
-			//pc.ChangeColor(ParticleController.COMBI);
-			AttackManagerUI.Instance.LoadCard(card, true);
-			UIHandCardManager.Instance.HideCard(card);
-			loadedBullets.Add(card);
-			//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
+				// Check if loaded cards does not exceed maximum
+				if (loadedBullets.Count >= GameConstants.MAX_ATTACK_COMBINATION) {
+					SoundManager.Instance.Play(AudibleNames.Crosshair.MISS);
+					return false;
+				}
 
-			BackgroundRaycaster.Instance.ResetBackupMat();  // Hide the backup mat
-			return true;
-        }
-        return false;
+				SoundManager.Instance.Play(AudibleNames.Crosshair.LOAD);
+				//pc.ChangeColor(ParticleController.COMBI);
+				AttackManagerUI.Instance.LoadCard(card, true);
+				UIHandCardManager.Instance.HideCard(card);
+				loadedBullets.Add(card);
+				//this.cardAttack.SetText(GetLoadedBulletsSum().ToString());
+
+				BackgroundRaycaster.Instance.ResetBackupMat();  // Hide the backup mat
+				return true;
+			}
+		}
+		else {
+			Debug.LogError("ERROR: No bullet to load!");
+			return false;
+		}
     }
 
     /// <summary>
