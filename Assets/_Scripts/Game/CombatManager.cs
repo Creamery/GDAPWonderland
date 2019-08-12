@@ -66,6 +66,8 @@ public class CombatManager : MonoBehaviour {
 	/// <param name="target"></param>
 	/// <returns>true if the bullet can be fired again, false if otherwise</returns>
 	public bool HandleAttack(PlayerManager attacker, List<Card> bullets, Soldier target) {
+		bool isRuleHigher = GameMaster.Instance.IsRuleHigher;
+
 		if (target.GetPlayerOwner() != attacker && target.GetCardReference() != null) {
 			int atkDamage = 0;
 			foreach (Card c in bullets) {
@@ -73,7 +75,7 @@ public class CombatManager : MonoBehaviour {
 			}
 
 			if (bullets.Count > 1) {
-				target.TakeDamage(atkDamage);
+				target.TakeDamage(atkDamage, isRuleHigher);
 				this.RefreshSoldiers();
 				return false;
 			}
@@ -92,7 +94,7 @@ public class CombatManager : MonoBehaviour {
 					target.SetDisableOnDamage(false);
 				}
 
-				target.TakeDamage(atkDamage);
+				target.TakeDamage(atkDamage, isRuleHigher);
 
 				// Successful Shot Heuristics
 				if (atksLeft <= 0) {

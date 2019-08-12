@@ -12,6 +12,9 @@ public class Quotes {
     public const string UI_DEFAULT_QUOTE_HEARTS = "Which ones, sir? Point the camera to an enemy and press fire.";
 	public const string UI_DEFAULT_QUOTE_MULTI = "Together, we are stronger.  Point the camera to an enemy and press fire.";
 
+	public const string ANNOUNCEMENT_HIGHER = "Only attacks with the value greater than or equal to the target's defense are effective.";
+	public const string ANNOUNCEMENT_LOWER = "Only attacks with the value less than or equal to the target's defense are effective.";
+
 	public const string ANNOUNCEMENT_RED_CARDS_ONLY = "Only cards marked by a HEART or DIAMOND can be used this turn. We wish for strict compliance. All violators will be burned.";
     public const string ANNOUNCEMENT_WHITE_CARDS_ONLY = "Only cards marked as SPADES or CLUBS can be used this turn. We wish for strict compliance. All violators will be burned.";
     public const string ANNOUNCEMENT_EAT_ME = "Let all soldiers eat the unknown cake. All of our soldiers are stronger by 1 health.";

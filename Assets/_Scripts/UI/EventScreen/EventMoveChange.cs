@@ -17,35 +17,50 @@ public class EventMoveChange : MonoBehaviour {
     public void setMoves(Rules rule) {
         this.ShowAll();
         switch (rule) {
-            case Rules.MOVEP2:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
+
+			case Rules.HIGHER:
+				this.GetEventNumberIcon().Hide();
+				this.GetEventNumberOperator().ShowHigher();
+				break; 
+			case Rules.LOWER:
+				this.GetEventNumberIcon().Hide();
+				this.GetEventNumberOperator().ShowLower();
+				break;
+
+
+			case Rules.MOVEP2:
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
                 this.GetEventNumberOperator().ShowPlus();
                 break;
 
             case Rules.MOVEP3:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_3);
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_3);
                 this.GetEventNumberOperator().ShowPlus();
                 break;
 
             case Rules.MOVEP4:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_4);
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_4);
                 this.GetEventNumberOperator().ShowPlus();
                 break;
 
             case Rules.MOVEP5:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_5);
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_5);
                 this.GetEventNumberOperator().ShowPlus();
                 break;
-
-
+				
             case Rules.MOVEX2:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
                 this.GetEventNumberOperator().ShowTimes();
                 break;
-
-
+				
             case Rules.MOVED2:
-                this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
+				this.GetEventNumberIcon().Show();
+				this.GetEventNumberIcon().GetImage().sprite = General.GetEventIconSprite(NAME_2);
                 this.GetEventNumberOperator().ShowDivide();
                 break;
         }
