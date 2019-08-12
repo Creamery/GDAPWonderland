@@ -12,6 +12,10 @@ public class Roulette : MonoBehaviour {
 	[SerializeField] private RouletteAnimatable rouletteAnimatable;
 	[SerializeField] private RouletteObjectAnimatable rouletteGameObjectAnimatable;
 
+	[SerializeField] private Material redMat;
+	[SerializeField] private Material whiteMat;
+	[SerializeField] private Material blackMat;
+
 	private Vector3 mouseRef, mouseOffset;
 
 	private const float MIN_ROTATION_SPEED = 15f;
@@ -27,12 +31,19 @@ public class Roulette : MonoBehaviour {
     private bool dragged;
 	private bool ended;
 
-    //private Vector3 TORQUE_CAP = new Vector3(0, 100f, 0);
+	//private Vector3 TORQUE_CAP = new Vector3(0, 100f, 0);
+
+	private void Awake() {
+		this.redMat = General.GetMaterial("Roulette_Red");
+		this.whiteMat = General.GetMaterial("Roulette_White");
+		this.blackMat = General.GetMaterial("Roulette_Black");
+	}
 
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("START");
 		this.Instantiate();
+		this.InitializeMaterialsOfRoulette();
 	}
 
 	// Update is called once per frame
@@ -101,6 +112,23 @@ public class Roulette : MonoBehaviour {
 	public void Instantiate(){
 		rotationSpeed = Vector3.zero;
 		this.shown = false;
+	}
+
+	public void InitializeMaterialsOfRoulette() {
+		foreach (Transform child in transform) {
+			if (child.name.Equals("higher")) {
+				child.GetComponent<MeshRenderer>().material = this.redMat;
+				Debug.Log("<color='red'> Set element: " + child.name + " as red </color>");
+			}
+			else if (child.name.Equals("lower")) {
+				child.GetComponent<MeshRenderer>().material = this.whiteMat;
+				Debug.Log("<color='white'> Set element: " + child.name + " as white </color>");
+			}
+			else {
+				child.GetComponent<MeshRenderer>().material = this.blackMat;
+				Debug.Log("<color='black'> Set element: " + child.name + " as black </color>");
+			}
+		}
 	}
 
 	public string GetPointedTo() {
