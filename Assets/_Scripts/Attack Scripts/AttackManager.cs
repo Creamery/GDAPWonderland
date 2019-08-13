@@ -29,6 +29,7 @@ public class AttackManager : MonoBehaviour {
 	private Coroutine checkFireCoroutine;
 	private Animator anim;
 	private bool isScanning;
+	private bool isAtkBoostActive;
 
     private void Awake() {
         sharedInstance = this;
@@ -37,6 +38,7 @@ public class AttackManager : MonoBehaviour {
 
 	private void Start() {
 		anim = GetComponentInParent<Animator>();
+		isAtkBoostActive = false;
 		loadedBullets = new List<Card>();
 		if(atkAnim == null) {
 			atkAnim = GetComponentInParent<AttackPanelAnimatable>();
@@ -82,6 +84,14 @@ public class AttackManager : MonoBehaviour {
     /// <returns>true if loading is successful, false if not</returns>
     public bool LoadCard(Card card) {
 		if (card != null) {
+			int attackModifier = CombatManager.Instance.GetAtkModifier();
+			if (attackModifier != 0) {
+				isAtkBoostActive = true;
+				card.SetAttack(card.GetCardAttack() + attackModifier);
+			}
+			else
+				isAtkBoostActive = false;
+
 			if (!this.isScanning) {
 
 				// First card loaded
@@ -135,6 +145,13 @@ public class AttackManager : MonoBehaviour {
 		//pc.Stop();
 		if (loadedBullets.Count == 0)
 			return;
+
+		// Revert the changes made in card's attack
+		if (isAtkBoostActive) {
+			foreach (Card c in loadedBullets) {
+				c.SetAttack(c.originalAttack);
+			}
+		}
 
         SoundManager.Instance.Play(AudibleNames.Button.CANCEL);
 		UIHandCardManager.Instance.UnhideAllCards();
@@ -243,6 +260,7 @@ public class AttackManager : MonoBehaviour {
 		PlayerManager curPlayer = MainScreenManager_GameScene.Instance.GetPlayer();
 		curPlayer.GetCardManager().DiscardHandCard(this.loadedBullets); // Discard card(s)
 		this.loadedBullets.Clear();
+		AttackManagerUI.Instance.UnloadCard();
 	}
 
     /// <summary>
@@ -313,9 +331,10 @@ public class AttackManager : MonoBehaviour {
 		if (loadedBullets == null)
 			return -1;
 		int sum = 0;
-		int modifier = CombatManager.Instance.GetAtkModifier();
+		//int modifier = CombatManager.Instance.GetAtkModifier();
 		foreach(Card c in loadedBullets) {
-			sum += c.GetCardAttack() + modifier;
+			//sum += c.GetCardAttack() + modifier;
+			sum += c.GetCardAttack();
 		}
 		return sum;
 	}
