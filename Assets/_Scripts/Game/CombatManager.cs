@@ -71,14 +71,11 @@ public class CombatManager : MonoBehaviour {
 		if (target.GetPlayerOwner() != attacker && target.GetCardReference() != null) {
 			int atkDamage = 0;
 			foreach (Card c in bullets) {
-				//atkDamage += c.GetCardAttack() + this.atkModifier;
-				atkDamage += c.GetCardAttack();
+				atkDamage += c.GetCardAttack() + this.atkModifier;
 			}
-			Debug.Log("<color='yellow'> Total damage: " + atkDamage + "</color>");
-			Card[] bulletsArr = bullets.ToArray();
 
 			if (bullets.Count > 1) {
-				target.TakeDamage(atkDamage, isRuleHigher, bulletsArr);
+				target.TakeDamage(atkDamage, isRuleHigher);
 				this.RefreshSoldiers();
 				return false;
 			}
@@ -97,7 +94,7 @@ public class CombatManager : MonoBehaviour {
 					target.SetDisableOnDamage(false);
 				}
 
-				target.TakeDamage(atkDamage, isRuleHigher, bulletsArr);
+				target.TakeDamage(atkDamage, isRuleHigher);
 
 				// Successful Shot Heuristics
 				if (atksLeft <= 0) {

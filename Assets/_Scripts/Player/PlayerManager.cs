@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour {
 			playerHero = new Hero(Hero.Type.ALICE);
 			
 		this.movesLeft = GameConstants.DEFAULT_MOVE_COUNT;
-		AcquireSkill();
+		
 
 	}
 

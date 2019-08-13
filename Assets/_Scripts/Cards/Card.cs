@@ -22,8 +22,6 @@ public class Card {
 		get { return originalHealth; }
 	}
 	[SerializeField] private int cardAttack;
-	public readonly int originalAttack;
-
 	[SerializeField] private int cardRank; // use a Range from 1-3 (4 if summon?) [TODO]
 
     private int numOfAttacks;
@@ -33,8 +31,7 @@ public class Card {
 		//this.cardImage = image;
 		this.cardHealth = health;
 		this.originalHealth = cardHealth;
-		this.cardAttack = attack;
-		this.originalAttack = cardAttack;
+		this.cardAttack = attack;  
 		this.cardRank = rank;
         if (suit == Suit.HEARTS)
             numOfAttacks = 2;
