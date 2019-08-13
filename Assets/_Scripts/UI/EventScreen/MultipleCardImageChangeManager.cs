@@ -29,13 +29,13 @@ public class MultipleCardImageChangeManager : MonoBehaviour {
         if (this.GetCardReference() != null) {
             Card c = GetCardReference();
             GetCardImage().sprite = General.GetCardSprite(c.GetCardSuit(), MainScreenManager_GameScene.Instance.GetPlayer().playerNo, c.GetCardRank());
-            this.GetCardAttackText().SetText(c.GetCardAttack().ToString());
-            this.GetCardHealthText().SetText(c.GetCardHealth().ToString());
+            this.GetCardAttackText().SetTextUI(c.GetCardAttack().ToString(), c.GetCardSuit());
+            this.GetCardHealthText().SetTextUI(c.GetCardHealth().ToString());
             //EnableBonus(GetComponentInParent<UIHandCardManager>().IsPoweredUp);
         }
         else {
-            this.GetCardAttackText().SetText("0");
-            this.GetCardHealthText().SetText("0");
+            this.GetCardAttackText().SetTextUI("0");
+            this.GetCardHealthText().SetTextUI("0");
         }
     }
 

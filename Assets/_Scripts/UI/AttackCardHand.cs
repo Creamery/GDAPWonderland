@@ -44,12 +44,12 @@ public class AttackCardHand : MonoBehaviour, IPointerClickHandler {
     }
     public void UpdateCardValues() {
         if (this.GetCardReference() != null) {
-            this.GetCardAttackText().SetText(this.GetCardReference().GetCardAttack().ToString());
-            this.GetCardHealthText().SetText(this.GetCardReference().GetCardHealth().ToString());
+            this.GetCardAttackText().SetTextUI(this.GetCardReference().GetCardAttack().ToString(), this.GetCardReference().GetCardSuit());
+            this.GetCardHealthText().SetTextUI(this.GetCardReference().GetCardHealth().ToString());
         }
         else {
-            this.GetCardAttackText().SetText("0");
-            this.GetCardHealthText().SetText("0");
+            this.GetCardAttackText().SetTextUI("0");
+            this.GetCardHealthText().SetTextUI("0");
         }
     }
 

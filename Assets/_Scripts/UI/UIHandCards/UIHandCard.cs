@@ -10,11 +10,6 @@ public class UIHandCard : MonoBehaviour{
 	readonly Color POWERED = Color.red;
 
 
-    readonly Color CLUBS = new Color32(73, 239, 33, 255);
-    readonly Color DIAMONDS = new Color32(252, 51, 101, 255);
-    readonly Color SPADES = new Color32(238, 81, 255, 255);
-    readonly Color HEARTS = new Color32(66, 236, 232, 255);
-
     private Card cardReference;
 	[SerializeField] private CardAttackText cardAttack;
 	[SerializeField] private CardHealthText cardHealth;
@@ -42,39 +37,22 @@ public class UIHandCard : MonoBehaviour{
 		return this.cardHealth;
 	}
 
-    public void recolorText(Card.Suit suit) {
-        this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
-        switch (suit) {
-            case Card.Suit.CLUBS:
-                this.GetCardAttackText().GetTextMesh().color = CLUBS;
-                break;
-            case Card.Suit.SPADES:
-                this.GetCardAttackText().GetTextMesh().color = SPADES;
-                break;
-            case Card.Suit.HEARTS:
-                this.GetCardAttackText().GetTextMesh().color = HEARTS;
-                break;
-            case Card.Suit.DIAMONDS:
-                this.GetCardAttackText().GetTextMesh().color = DIAMONDS;
-                break;
-        }
-    }
 
 	public void UpdateCardValues() {
 		if (this.GetCardReference() != null) {
 			Card c = GetCardReference();
 			cardBase.sprite = General.GetCardSprite(c.GetCardSuit(), MainScreenManager_GameScene.Instance.GetPlayer().playerNo, c.GetCardRank());
 
-            this.recolorText(c.GetCardSuit());
+            // this.recolorText(c.GetCardSuit());
             // GetCardAttackText().GetTextMesh().color = DEFAULT;
 
-            this.GetCardAttackText().SetText(c.GetCardAttack().ToString());
-			this.GetCardHealthText().SetText(c.GetCardHealth().ToString());
+            this.GetCardAttackText().SetTextUI(c.GetCardAttack().ToString(), c.GetCardSuit());
+			this.GetCardHealthText().SetTextUI(c.GetCardHealth().ToString());
 			EnableBonus(GetComponentInParent<UIHandCardManager>().IsPoweredUp);
 		}
 		else {
-			this.GetCardAttackText().SetText("0");
-			this.GetCardHealthText().SetText("0");
+			this.GetCardAttackText().SetTextUI("0");
+			this.GetCardHealthText().SetTextUI("0");
 		}
 	}
 
@@ -98,13 +76,13 @@ public class UIHandCard : MonoBehaviour{
 	public void ShouldShow(bool val) {
 		if (!val) {
 			SetAlpha(cardBase, 0);
-			SetAlpha(cardAttack.GetTextMesh(), 0);
-			SetAlpha(cardHealth.GetTextMesh(), 0);
+			SetAlpha(cardAttack.GetTextMeshUI(), 0);
+			SetAlpha(cardHealth.GetTextMeshUI(), 0);
 		}
 		else {
 			SetAlpha(cardBase, 1);
-			SetAlpha(cardAttack.GetTextMesh(), 1);
-			SetAlpha(cardHealth.GetTextMesh(), 1);
+			SetAlpha(cardAttack.GetTextMeshUI(), 1);
+			SetAlpha(cardHealth.GetTextMeshUI(), 1);
 		}
 	}
 
@@ -114,13 +92,13 @@ public class UIHandCard : MonoBehaviour{
 
 		if (val) {
 			int bonus = GameMaster.Instance.IsRuleHigher ? GameConstants.SkillValues.VORPAL_SWORD_BONUS : GameConstants.SkillValues.VORPAL_SWORD_BONUS * -1;
-			GetCardAttackText().SetText((GetCardReference().GetCardAttack() + bonus).ToString());
-			GetCardAttackText().GetTextMesh().color = POWERED; 
+			GetCardAttackText().SetTextUI((GetCardReference().GetCardAttack() + bonus).ToString(), GetCardReference().GetCardSuit());
+			GetCardAttackText().GetTextMeshUI().color = POWERED; 
 		}
 		else {
-			GetCardAttackText().SetText(GetCardReference().GetCardAttack().ToString());
-			GetCardAttackText().GetTextMesh().color = DEFAULT;
-            this.recolorText(GetCardReference().GetCardSuit());
+			GetCardAttackText().SetTextUI(GetCardReference().GetCardAttack().ToString(), GetCardReference().GetCardSuit());
+			// GetCardAttackText().GetTextMesh().color = DEFAULT;
+            // this.recolorText(GetCardReference().GetCardSuit());
         }
 	}
 
