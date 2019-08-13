@@ -14,6 +14,7 @@ public class Soldier : MonoBehaviour {
     [SerializeField] private int currentHealth;
 	//[SerializeField] private int defenseIndex;
 	[Header("Setup")]
+	[SerializeField] private SoldierHistoryManager soldierHistory;
 	[SerializeField] private OutlinedModel outline;
 	[SerializeField] private SoldierModelHandler modelContainer;
 	//[SerializeField] private GameObject placeHolderBlock;
@@ -49,28 +50,40 @@ public class Soldier : MonoBehaviour {
 	/// (Possibly by AttackManager.cs)
 	/// </summary>
 	/// <param name="damage"></param>
-	public void TakeDamage(int damage, bool isRuleHigher) {
+	public void TakeDamage(int damage, bool isRuleHigher, Card[] attackCards) {
 		//bool isRuleHigher = GameMaster.IsHigher;
+		Card[] defendCards = new Card[2];
+		defendCards[0] = GetCardReference();
+		defendCards[1] = this.GetBackup().GetCard();
+
+		History historyEntry = new History(isRuleHigher, GetPlayerOwner(), attackCards, defendCards);
+
 		if (isRuleHigher) {
 			if (damage >=  this.GetReinforcedHealth()) {
 				this.currentHealth = 0;
 				this.UpdateHealth();
+				historyEntry.DoesAttackerWin = true;
 				Kill();
 			}
 			else {
 				// Failed to kill
+				historyEntry.DoesAttackerWin = false;
 			}
 		}
 		else {
 			if(damage <= this.GetReinforcedHealth()) {
 				this.currentHealth = 0;
 				this.UpdateHealth();
+				historyEntry.DoesAttackerWin = true;
 				Kill();
 			}
 			else {
 				// Failed to kill
+				historyEntry.DoesAttackerWin = false;
 			}
 		}
+
+		GetSoldierHistory().AddHistory(historyEntry);
 
 		//// REMOVE LINES BELOW
 		//this.currentHealth -= damage;
@@ -208,6 +221,14 @@ public class Soldier : MonoBehaviour {
 	 * Used as a safety measure for null checking
 	 * (But ideally should not enter the null check condition).
 	 **/
+
+
+	public SoldierHistoryManager GetSoldierHistory() {
+		if(this.soldierHistory == null) {
+			this.soldierHistory = GetComponentInChildren<SoldierHistoryManager>();
+		}
+		return this.soldierHistory;
+	}
 
 	public OutlinedModel GetOutline() {
 		if(this.outline == null) {
