@@ -20,17 +20,10 @@ public class CardAttackText : MonoBehaviour {
     const string fontSPADES = "LiberationSans SDF - SpadesOutline";
     const string fontHEARTS = "LiberationSans SDF - HeartsOutline";
 
-    protected Material matCLUBS;
-    protected Material matDIAMONDS;
-    protected Material matSPADES;
-    protected Material matHEARTS;
-
-    private void Awake() {
-        matCLUBS = Resources.Load<Material>(fontPath + fontCLUBS);
-        matDIAMONDS = Resources.Load<Material>(fontPath + fontDIAMONDS);
-        matSPADES = Resources.Load<Material>(fontPath + fontSPADES);
-        matHEARTS = Resources.Load<Material>(fontPath + fontHEARTS);
-    }
+    [SerializeField] protected Material matCLUBS;
+    [SerializeField] protected Material matDIAMONDS;
+    [SerializeField] protected Material matSPADES;
+    [SerializeField] protected Material matHEARTS;
 
     public void SetText(string attackText, Card.Suit suit) {
         this.SetText(attackText);
@@ -71,46 +64,78 @@ public class CardAttackText : MonoBehaviour {
     }
 
     public void recolorTextUI(Card.Suit suit) {
-        this.GetTextMeshUI().color = DIAMONDS;
         switch (suit) {
             case Card.Suit.CLUBS:
                 this.GetTextMeshUI().color = CLUBS;
-                this.GetTextMeshUI().fontSharedMaterial = matCLUBS;
+                this.GetTextMeshUI().fontSharedMaterial = GetMatClubs();
                 break;
             case Card.Suit.SPADES:
                 this.GetTextMeshUI().color = SPADES;
-                this.GetTextMeshUI().fontSharedMaterial = matSPADES;
+                this.GetTextMeshUI().fontSharedMaterial = GetMatSpades();
                 break;
             case Card.Suit.HEARTS:
                 this.GetTextMeshUI().color = HEARTS;
-                this.GetTextMeshUI().fontSharedMaterial = matHEARTS;
+                this.GetTextMeshUI().fontSharedMaterial = GetMatHearts();
                 break;
             case Card.Suit.DIAMONDS:
                 this.GetTextMeshUI().color = DIAMONDS;
-                this.GetTextMeshUI().fontSharedMaterial = matDIAMONDS;
+                this.GetTextMeshUI().fontSharedMaterial = GetMatDiamonds();
                 break;
         }
     }
 
     public void recolorText(Card.Suit suit) {
-        this.GetTextMesh().color = DIAMONDS;
         switch (suit) {
             case Card.Suit.CLUBS:
                 this.GetTextMesh().color = CLUBS;
-                this.GetTextMesh().fontSharedMaterial = matCLUBS;
+                this.GetTextMesh().fontSharedMaterial = GetMatClubs();
                 break;
             case Card.Suit.SPADES:
                 this.GetTextMesh().color = SPADES;
-                this.GetTextMesh().fontSharedMaterial = matSPADES;
+                this.GetTextMesh().fontSharedMaterial = GetMatSpades();
                 break;
             case Card.Suit.HEARTS:
                 this.GetTextMesh().color = HEARTS;
-                this.GetTextMesh().fontSharedMaterial = matHEARTS;
+                this.GetTextMesh().fontSharedMaterial = GetMatHearts();
                 break;
             case Card.Suit.DIAMONDS:
                 this.GetTextMesh().color = DIAMONDS;
-                this.GetTextMesh().fontSharedMaterial = matDIAMONDS;
+                this.GetTextMesh().fontSharedMaterial = GetMatDiamonds();
                 break;
         }
+    }
+
+
+
+
+    public Material GetMatClubs() {
+        if (matCLUBS == null) {
+            matCLUBS = Resources.Load<Material>(fontPath + fontCLUBS);
+        }
+        return matCLUBS;
+    }
+
+
+    public Material GetMatDiamonds() {
+        if (matDIAMONDS == null) {
+            matDIAMONDS = Resources.Load<Material>(fontPath + fontDIAMONDS);
+        }
+        return matDIAMONDS;
+    }
+
+
+    public Material GetMatSpades() {
+        if (matSPADES == null) {
+            matSPADES = Resources.Load<Material>(fontPath + fontSPADES);
+        }
+        return matSPADES;
+    }
+
+
+    public Material GetMatHearts() {
+        if (matHEARTS == null) {
+            matHEARTS = Resources.Load<Material>(fontPath + fontHEARTS);
+        }
+        return matHEARTS;
     }
 }
