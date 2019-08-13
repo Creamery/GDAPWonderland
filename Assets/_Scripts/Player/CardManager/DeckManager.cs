@@ -51,7 +51,7 @@ public class DeckManager : MonoBehaviour {
 	
 	void Awake() {
 		this.Instantiate ();
-
+		Debug.Log("<color='red'> Number of hearts in deck: " + CardCountBySuit[HEARTS]+"</color>");
     }
 
     /// <summary>
