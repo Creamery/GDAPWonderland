@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: bb7dc6a7f8197334bbc0237e871850b8,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -268,6 +269,145 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+--- !u!1001 &11505627
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667711160773314, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 23633795287605256, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23552535954092460, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23043746957878116, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23043746957878116, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23043746957878116, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23049311620962488, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23043746957878116, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23373400483528972, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23126980356801932, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23443733114494552, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23056955195280508, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23317459109349676, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23461862854057034, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23056955195280508, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23919082253883216, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    - target: {fileID: 23991411800497478, guid: e639be7b0735dd643b96c10f0764bd4e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf06e43d175de4443af9e626fae280d6, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e639be7b0735dd643b96c10f0764bd4e, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &11505628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1866498252788906, guid: e639be7b0735dd643b96c10f0764bd4e,
+    type: 2}
+  m_PrefabInternal: {fileID: 11505627}
+--- !u!114 &11505629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11505628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708441ed6e2f8d04cad40cdab1a2097a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialForOverride: []
 --- !u!1 &20025006
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4f4265de654b24689b4763af1e867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replenishDefenseMode: 0
 --- !u!1 &180717890
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,8 +1120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNo: 0
+  hasBeenDirectAtk: 0
   cardManager: {fileID: 1643943951}
-  soldierManager: {fileID: 590594840}
+  killTrigger: 0
 --- !u!43 &246582208
 Mesh:
   m_ObjectHideFlags: 0
@@ -1282,7 +1422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1915397019}
-  soldiers: []
 --- !u!1 &311551173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,8 +1877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7049e50bb4c2e63438450ea2c4149d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckList: []
-  graveList: []
 --- !u!1 &410461526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,16 +2303,11 @@ MonoBehaviour:
   triggerStartScan: 0
   triggerStopScan: 0
   crosshairTransform: {fileID: 1846243289}
+  pc: {fileID: 0}
   mainCamera: {fileID: 0}
   cardAttack: {fileID: 0}
-  isScanning: 0
-  cardBullet:
-    cardSuit: 0
-    cardImage: 
-    cardHealth: 0
-    cardAttack: 0
-    cardRank: 0
-  targetSoldier: {fileID: 0}
+  cancelBtn: {fileID: 0}
+  atkAnim: {fileID: 0}
 --- !u!1 &521362624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 214380308}
-  soldiers: []
 --- !u!1 &617071945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,14 +3578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9df0e6149e4194d9434df70b2d9973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontCards: []
-  backCards: []
-  summonCard:
-    cardSuit: 0
-    cardImage: 
-    cardHealth: 0
-    cardAttack: 0
-    cardRank: 0
 --- !u!1 &868315646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,16 +3724,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35552d891fd9bd04f9bfd9e4533b689a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierManager: {fileID: 0}
-  cardReference:
-    cardSuit: 0
-    cardImage: 
-    cardHealth: 0
-    cardAttack: 0
-    cardRank: 0
   currentHealth: 0
-  defenseIndex: 0
+  soldierHistory: {fileID: 0}
+  outline: {fileID: 0}
+  modelContainer: {fileID: 0}
+  colliderObject: {fileID: 0}
+  heartModel: {fileID: 0}
+  soldierSkinnableManager: {fileID: 0}
+  soldierAnimatable: {fileID: 0}
+  healthTextContainer: {fileID: 0}
   healthText: {fileID: 0}
+  healthTextBack: {fileID: 0}
 --- !u!1 &915007522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,8 +4202,8 @@ MonoBehaviour:
   dragContainer: {fileID: 1499649284}
   UIHandCardPrefab: {fileID: 1925498358472944, guid: f05d64160e2bd074180a085ef3d09da9,
     type: 2}
+  powerEffect: {fileID: 0}
   previewCardYPos: 30
-  previewCardScaleMultiplier: 1.5
 --- !u!1 &1060772149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,7 +4244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621b1d9ea39ae3a4cb9f92757890a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCards: []
 --- !u!1 &1078842493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4318,29 @@ MonoBehaviour:
   verticalLayoutGroup: {fileID: 0}
   cardList: []
   newCardIndex: 0
+--- !u!21 &1090717673
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: OutlineFill (Instance)
+  m_Shader: {fileID: 4800000, guid: 4e76d4023d7e0411297c670f878973e2, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _OutlineWidth: 9.3
+    - _ZTest: 8
+    m_Colors:
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!21 &1112650804
 Material:
   serializedVersion: 6
@@ -4505,6 +4651,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f6b2ab2199fe14abacc50d64ba302b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matCLUBS: {fileID: 0}
+  matDIAMONDS: {fileID: 0}
+  matSPADES: {fileID: 0}
+  matHEARTS: {fileID: 0}
 --- !u!1 &1262346164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,9 +4770,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0a33678b8fac937488a71ff8c95ecaf0, type: 2}
+  - {fileID: 0}
   - {fileID: 210307600}
   - {fileID: 1112650804}
+  - {fileID: 1537599047}
+  - {fileID: 1090717673}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5947,6 +6099,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &1537599047
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: OutlineMask (Instance)
+  m_Shader: {fileID: 4800000, guid: 341b058cd7dee4f5cba5cc59a513619e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZTest: 4
+    m_Colors: []
 --- !u!1 &1557732498
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,14 +6456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9df0e6149e4194d9434df70b2d9973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontCards: []
-  backCards: []
-  summonCard:
-    cardSuit: 0
-    cardImage: 
-    cardHealth: 0
-    cardAttack: 0
-    cardRank: 0
 --- !u!1 &1628884529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7189,16 +7354,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35552d891fd9bd04f9bfd9e4533b689a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierManager: {fileID: 0}
-  cardReference:
-    cardSuit: 0
-    cardImage: 
-    cardHealth: 0
-    cardAttack: 0
-    cardRank: 0
   currentHealth: 0
-  defenseIndex: 0
+  soldierHistory: {fileID: 0}
+  outline: {fileID: 0}
+  modelContainer: {fileID: 0}
+  colliderObject: {fileID: 0}
+  heartModel: {fileID: 0}
+  soldierSkinnableManager: {fileID: 0}
+  soldierAnimatable: {fileID: 0}
+  healthTextContainer: {fileID: 0}
   healthText: {fileID: 0}
+  healthTextBack: {fileID: 0}
 --- !u!1 &1828792896
 GameObject:
   m_ObjectHideFlags: 0
@@ -7244,9 +7410,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGame: 0
-  screenManager: {fileID: 0}
   player1: {fileID: 214380308}
   player2: {fileID: 0}
+  arenaAnimator: {fileID: 0}
+  roulette: {fileID: 0}
+  giveCurPlayerSkill: 0
+  giveCurPlayerBomb: 0
   stopPhase: 0
 --- !u!1 &1846243287
 GameObject:
@@ -7333,8 +7502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7049e50bb4c2e63438450ea2c4149d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckList: []
-  graveList: []
 --- !u!1 &1885944380
 GameObject:
   m_ObjectHideFlags: 0
@@ -7448,8 +7615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNo: 0
+  hasBeenDirectAtk: 0
   cardManager: {fileID: 1318170066}
-  soldierManager: {fileID: 310230042}
+  killTrigger: 0
 --- !u!1 &1940329582
 GameObject:
   m_ObjectHideFlags: 0
@@ -7828,7 +7996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621b1d9ea39ae3a4cb9f92757890a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCards: []
 --- !u!1 &2002296233
 GameObject:
   m_ObjectHideFlags: 0
