@@ -98,10 +98,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			// Set players' soldiers' material (translucent or normal)
 			player1.SetTranslucentSoldiers(true);
 			player2.SetTranslucentSoldiers(false);
-			
+
 			// Set backup cards float under here
-
-
+			player1.SetBackupCardsTranslucent(true);
+			player2.SetBackupCardsTranslucent(false);
 		}
 		else if(playerNo == -2) {
 			// Show nothing; Hide all
@@ -115,9 +115,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			// Set players' soldiers' material (translucent or normal)
 			player1.SetTranslucentSoldiers(false);
 			player2.SetTranslucentSoldiers(false);
-
+			
 			// Set backup cards float under here
-
+			player1.SetBackupCardsTranslucent(false);
+			player2.SetBackupCardsTranslucent(false);
 
 		}
 		else {
@@ -132,8 +133,8 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			player2.SetTranslucentSoldiers(true);
 
 			// Set backup cards float under here
-
-
+			player1.SetBackupCardsTranslucent(false);
+			player2.SetBackupCardsTranslucent(true);
 		}
 	}
 	#endregion

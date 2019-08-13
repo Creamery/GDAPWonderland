@@ -100,6 +100,13 @@ public class SoldierBackup : MonoBehaviour {
 		}
 	}
 
+	public void SetFloatingCardTranslucent(bool val) {
+		if (cardReference == null)
+			return;
+
+		GetFloatingCard().SetTranslucent(val);
+	}
+
 	public void CompleteHideAnim() {
 		this.GetCardAttack().SetText("");
 		this.GetCardHealth().SetTextMesh("");

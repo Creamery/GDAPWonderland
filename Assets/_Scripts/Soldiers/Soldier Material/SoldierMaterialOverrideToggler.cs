@@ -35,6 +35,7 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 		Renderer[] children = GetComponentsInChildren<Renderer>(false);
 		if (children.Length < 1)
 			return;
+
 		foreach(Renderer child in children) {
 			materialsCache.Add(child.materials);
 			child.materials = materialForOverride;
@@ -44,7 +45,7 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 	public void RestoreMaterial() {
 		isOverriden = false;
 		Renderer[] children = GetComponentsInChildren<Renderer>(false);
-		if (children.Length < 1)
+		if (children.Length < 1 || materialsCache.Count < 1)
 			return;
 
 		int i = 0;
@@ -52,7 +53,7 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 			child.materials = materialsCache[i];
 			i++;
 		}
-
+		materialsCache.Clear();
 	}
 
 	/// <summary>

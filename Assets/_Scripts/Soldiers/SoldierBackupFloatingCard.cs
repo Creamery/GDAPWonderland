@@ -38,6 +38,11 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
         isEnabled = false;
     }
 
+	//TODO: write code here
+	public void SetTranslucent(bool val) {
+
+	}
+
     public MeshRenderer GetCardRenderer() {
         if(this.cardRenderer == null) {
             this.cardRenderer = GetComponent<MeshRenderer>();
