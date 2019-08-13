@@ -5,7 +5,30 @@ using UnityEngine;
 public class SoldierBackupFloatingCard : MonoBehaviour {
     [SerializeField] MeshRenderer cardRenderer;
     [SerializeField] MeshRenderer[] childRenderers;
+
+
+
+    [SerializeField] Material matParentOriginal;
+    [SerializeField] Material matParentTransluscent;
+
+    [SerializeField] Material matChildOriginal;
+    [SerializeField] Material matChildTransluscent;
+
+
     protected bool isEnabled = true;
+    protected bool isTransluscent = false;
+
+
+
+    protected const string strParentTransluscent = "FloatingCardMaterialInvisible";
+    protected const string strChildTransluscent = "TranslucentFloatingCardMaterial";
+
+
+
+    private void Awake() {
+        this.GetParentOriginalMaterial();
+        this.GetChildOriginalMaterial();
+    }
 
     public void Refresh() {
         if(isEnabled) {
@@ -40,6 +63,16 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
 
 	//TODO: write code here
 	public void SetTranslucent(bool val) {
+        this.isTransluscent = val;
+
+        if(isTransluscent) {
+            this.GetCardRenderer().material = this.GetParentTransluscentMaterial();
+            this.GetChildRenderers()[0].material = this.GetChildTransluscentMaterial();
+        }
+        else {
+            this.GetCardRenderer().material = this.GetParentOriginalMaterial();
+            this.GetChildRenderers()[0].material = this.GetChildOriginalMaterial();
+        }
 
 	}
 
@@ -55,5 +88,39 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
             this.childRenderers = GetComponentsInChildren<MeshRenderer>();
         }
         return this.childRenderers;
+    }
+
+
+
+
+    public Material GetParentTransluscentMaterial() {
+        if (this.matParentTransluscent == null) {
+            this.matParentTransluscent = General.GetMaterial(strParentTransluscent);
+        }
+        return this.matParentTransluscent;
+    }
+
+
+    public Material GetChildTransluscentMaterial() {
+        if (this.matChildTransluscent == null) {
+            this.matChildTransluscent = General.GetMaterial(strChildTransluscent);
+        }
+        return this.matChildTransluscent;
+    }
+
+
+
+    public Material GetParentOriginalMaterial() {
+        if (this.matParentOriginal == null) {
+            this.matParentOriginal = GetComponent<MeshRenderer>().material;
+        }
+        return this.matParentOriginal;
+    }
+
+    public Material GetChildOriginalMaterial() {
+        if (this.matChildOriginal == null) {
+            this.matChildOriginal = GetComponentInChildren<MeshRenderer>().material;
+        }
+        return this.matChildOriginal;
     }
 }
