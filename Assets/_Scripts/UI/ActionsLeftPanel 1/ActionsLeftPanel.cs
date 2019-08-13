@@ -59,6 +59,31 @@ public class ActionsLeftPanel : MonoBehaviour {
         PlayerPanel.Instance.RefreshMovesLeft();
         anim.SetTrigger("Show");
 	}
+
+    public void ResetTriggers() {
+        anim.ResetTrigger("Show");
+        anim.ResetTrigger("Hide");
+        anim.ResetTrigger("ShowReverseToHigh");
+        anim.ResetTrigger("ShowReverseToLow");
+    }
+
+    public void ShowReverseRule(bool isHigher) {
+
+        isHiddenComplete = false;
+        gameObject.SetActive(true);
+
+        this.ResetTriggers();
+
+        if (isHigher) {
+            anim.SetTrigger("ShowReverseToHigh");
+        }
+        else {
+            anim.SetTrigger("ShowReverseToLow");
+        }
+
+    }
+
+
     public void PlayBellSound() {
         SoundManager.Instance.Play(AudibleNames.Target.BELL);
     }
@@ -73,11 +98,13 @@ public class ActionsLeftPanel : MonoBehaviour {
 	}
 
 	public void Hide() {
+        this.ResetTriggers();
 		anim.SetTrigger("Hide");
 	}
 
 	public void OnHideComplete() {
-		gameObject.SetActive(false);
+        this.ResetTriggers();
+        gameObject.SetActive(false);
 		isHiddenComplete = true;
 	}
 	#endregion

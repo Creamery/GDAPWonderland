@@ -58,7 +58,10 @@ public class UIHandCardRaycaster : MonoBehaviour {
 									// Show Rule (higher/lower) has been swapped UI
 								bool prevRule = GameMaster.Instance.IsRuleHigher;
 								GameMaster.Instance.SwapHigherLower();
-								Debug.Log("<color='green'> RULE SWAPPED: "+prevRule+"->"+GameMaster.Instance.IsRuleHigher+" </color>");
+
+                                ActionsLeftPanel.Instance.ShowReverseRule(!prevRule);
+
+                                Debug.Log("<color='green'> RULE SWAPPED: "+prevRule+"->"+GameMaster.Instance.IsRuleHigher+" </color>");
 								break;
 							default: //Do nothing
 								break;
