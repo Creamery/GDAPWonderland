@@ -36,8 +36,8 @@ public class SoldierHistoryManager : MonoBehaviour {
 	}
 	
 	public void ShowHistoryPanel(bool val) {
-		// Prevent showing history panel when theres nothing to show
-		if (val && historyQ.Count < 1)
+		// Prevent showing history panel when theres nothing to show OR [soldier is not dead] (current implementation, not final)
+		if (val && ((historyQ.Count < 1) || GetComponentInParent<Soldier>().GetCardReference() != null))
 			return;
 		GetSoldierHistoryModels().gameObject.SetActive(val);
 	}
