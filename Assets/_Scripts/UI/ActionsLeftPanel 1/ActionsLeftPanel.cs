@@ -98,11 +98,13 @@ public class ActionsLeftPanel : MonoBehaviour {
 	}
 
 	public void Hide() {
+        this.ResetTriggers();
 		anim.SetTrigger("Hide");
 	}
 
 	public void OnHideComplete() {
-		gameObject.SetActive(false);
+        this.ResetTriggers();
+        gameObject.SetActive(false);
 		isHiddenComplete = true;
 	}
 	#endregion
