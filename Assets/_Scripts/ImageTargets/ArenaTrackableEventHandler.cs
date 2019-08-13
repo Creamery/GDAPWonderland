@@ -9,7 +9,13 @@ public class ArenaTrackableEventHandler : DefaultTrackableEventHandler {
 	/// </summary>
 	protected override void OnTrackingFound() {
 		base.OnTrackingFound();
-	}
+
+        var floatingCardBackComponents = GetComponentsInChildren<SoldierBackupFloatingCard>(true);
+
+        // Refresh floating card backs:
+        foreach (var component in floatingCardBackComponents)
+            ((SoldierBackupFloatingCard)component).Refresh();
+    }
 
 	/// <summary>
 	/// Called once image target is lost.
