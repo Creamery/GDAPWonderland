@@ -14,9 +14,11 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
             this.Hide();
         }
     }
+    /*
     private void FixedUpdate() {
         this.Refresh();
     }
+    */
     public void Show() {
         this.GetCardRenderer().enabled = true;
         isEnabled = true;
