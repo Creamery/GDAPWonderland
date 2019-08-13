@@ -3,12 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckManager : MonoBehaviour {
+	public const int HEARTS = 0;
+	public const int SPADES = 1;
+	public const int DIAMONDS = 2;
+	public const int CLUBS = 3;
+
 	// Did not use Queue cause of shuffle
 	[SerializeField] private List<Card> deckList;
 	[SerializeField] private List<Card> graveList;
 
+	private int totalDeckCount;
+	public int TotalDeckCount {
+		get {
+			totalDeckCount = this.deckList.Count;
+			return totalDeckCount; 
+		}
+	}
+
+	private int[] cardCountBySuit;
+	public int[] CardCountBySuit {
+		get {
+			// Reset cardcounts 
+			for (int i = 0; i < cardCountBySuit.Length; i++)
+				cardCountBySuit[i] = 0;
+
+			// Recount cards by suit
+			foreach(Card c in deckList) {
+				switch (c.GetCardSuit()) {
+					case Card.Suit.HEARTS:
+						cardCountBySuit[HEARTS] += 1;
+						break;
+					case Card.Suit.SPADES:
+						cardCountBySuit[SPADES] += 1;
+						break;
+					case Card.Suit.DIAMONDS:
+						cardCountBySuit[DIAMONDS] += 1;
+						break;
+					case Card.Suit.CLUBS:
+						cardCountBySuit[CLUBS] += 1;
+						break;
+				}
+			}
+
+			return this.cardCountBySuit;
+		}
+	}
+	
 	void Awake() {
 		this.Instantiate ();
+
     }
 
     /// <summary>
@@ -115,6 +158,7 @@ public class DeckManager : MonoBehaviour {
 	public void Instantiate() {
 		this.deckList = new List<Card> ();
 		this.graveList = new List<Card> ();
+		this.cardCountBySuit = new int[4];
 
 		this.GenerateDeck ();
 		//this.PrintDeck ();
