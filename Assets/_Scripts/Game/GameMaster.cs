@@ -445,12 +445,14 @@ public class GameMaster : MonoBehaviour {
         switch (rule) {
 			case Rules.HIGHER:
 				this.isRuleHigher = true;
-				MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule);
+				MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule); // TODO Change rule icon here
+                PlayerPanel.Instance.UpdateRuleIcon(this.isRuleHigher);
 				break;
 			case Rules.LOWER:
 				this.isRuleHigher = false;
-				MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule);
-				break;
+                MainScreenManager_EventScreen.Instance.ShowAnnouncement(rule);
+                PlayerPanel.Instance.UpdateRuleIcon(this.isRuleHigher);
+                break;
 
 			case Rules.MOVED2:
 				MoveEvent(2, "divide");

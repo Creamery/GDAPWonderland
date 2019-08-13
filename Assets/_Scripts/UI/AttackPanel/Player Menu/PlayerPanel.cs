@@ -20,6 +20,10 @@ public class PlayerPanel : MonoBehaviour {
 
     [SerializeField] PlayerSensitiveObjectManager drawCardBackManager;
 
+
+    [SerializeField] RuleHighImageObjectMarker imageMarkerRuleHigh;
+    [SerializeField] RuleLowImageObjectMarker imageMarkerRuleLow;
+
     private static PlayerPanel sharedInstance;
     public static PlayerPanel Instance {
         get { return sharedInstance; }
@@ -133,6 +137,21 @@ public class PlayerPanel : MonoBehaviour {
 
     }
 
+
+    public void UpdateRuleIcon(bool isHigher) {
+        
+        // TODO Create HideAll
+        this.GetImageMarkerRuleHigh().Hide();
+        this.GetImageMarkerRuleLow().Hide();
+
+        if (isHigher) {
+            this.GetImageMarkerRuleHigh().Show();
+        }
+        else {
+            this.GetImageMarkerRuleLow().Show();
+        }
+    }
+
 	public void DrawBtnPressed() {
 		PlayerManager p = MainScreenManager_GameScene.Instance.GetPlayer();
 
@@ -216,5 +235,23 @@ public class PlayerPanel : MonoBehaviour {
             this.drawCardBackManager = GetComponentInChildren<PlayerSensitiveObjectManager>();
         }
         return this.drawCardBackManager;
+    }
+
+
+
+    public RuleHighImageObjectMarker GetImageMarkerRuleHigh() {
+        if (this.imageMarkerRuleHigh == null) {
+            this.imageMarkerRuleHigh = GetComponentInChildren<RuleHighImageObjectMarker>();
+        }
+        return this.imageMarkerRuleHigh;
+    }
+
+
+
+    public RuleLowImageObjectMarker GetImageMarkerRuleLow() {
+        if (this.imageMarkerRuleLow == null) {
+            this.imageMarkerRuleLow = GetComponentInChildren<RuleLowImageObjectMarker>();
+        }
+        return this.imageMarkerRuleLow;
     }
 }
