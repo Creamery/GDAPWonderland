@@ -246,6 +246,13 @@ public class GameMaster : MonoBehaviour {
 		MainScreenManager_PhaseScreen.Instance.ShowAttackPhase();
 		yield return new WaitForSeconds(DrawPhaseAnimatable.f_ATTACK + DrawPhaseAnimatable.f_ATTACK_SHOW);
 
+		// Show current player's soldier history on game scene
+		Parameters param = new Parameters();
+		param.PutExtra("playerNo", GetCurPlayer().playerNo);
+		param.PutExtra("shouldClear", true);	// clears the other player's soldier history
+		EventBroadcaster.Instance.PostEvent(EventNames.ARENA.SHOW_SOLDIERHISTORY, param);
+		// End of show player's soldier history code
+
 		this.StartPhase();
 
 		Debug.Log("<color=cyan> START: Phase2()</color>");
@@ -272,6 +279,12 @@ public class GameMaster : MonoBehaviour {
 	/// <returns></returns>
 	IEnumerator PostEndTurnPhase() {
 		EventBroadcaster.Instance.PostEvent(EventNames.ARENA.CLOSE_BACKUPMAT);
+		
+		// Hide all soldier history from game scene
+		Parameters param = new Parameters();
+		param.PutExtra("playerNo", -2);
+		EventBroadcaster.Instance.PostEvent(EventNames.ARENA.SHOW_SOLDIERHISTORY, param);
+
 		player1.GetCardManager().GetDefenseManager().SettleFrontDefense();
 		player2.GetCardManager().GetDefenseManager().SettleFrontDefense();
 		ResetAttackBonus();

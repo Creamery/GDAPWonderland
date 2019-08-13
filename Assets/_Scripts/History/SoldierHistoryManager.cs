@@ -26,15 +26,15 @@ public class SoldierHistoryManager : MonoBehaviour {
 		GetSoldierHistoryModels().SetHistory(historyEntry);
 	}
 
-	public void ClearDisplayedHistories() {
-		GetSoldierHistoryModels().RemoveHistory();
-	}
-
 	public void ClearHistories() {
 		ClearDisplayedHistories();
 		historyQ.Clear();
 	}
 
+	public void ClearDisplayedHistories() {
+		GetSoldierHistoryModels().RemoveHistory();
+	}
+	
 	public void ShowHistoryPanel(bool val) {
 		GetSoldierHistoryModels().gameObject.SetActive(val);
 	}

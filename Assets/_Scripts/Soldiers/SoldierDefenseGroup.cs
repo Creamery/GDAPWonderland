@@ -109,6 +109,20 @@ public class SoldierDefenseGroup : MonoBehaviour {
 			isBackupMatShown = !val;
 	}
 
+	public void ShowSoldierHistories(bool val) {
+		foreach(Soldier s in soldiers) {
+			SoldierHistoryManager histManager = s.GetSoldierHistory();
+			histManager.ShowHistoryPanel(val);
+		}
+	}
+
+	public void ClearSoldierHistories() {
+		foreach (Soldier s in soldiers) {
+			SoldierHistoryManager histManager = s.GetSoldierHistory();
+			histManager.ClearHistories();
+		}
+	}
+
 	public void ToggleBackupMat() {
 		isBackupMatShown = !isBackupMatShown;
 		backupContainer.Open(isBackupMatShown);

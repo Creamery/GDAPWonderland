@@ -30,11 +30,13 @@ public class ArenaUpdateHandler : MonoBehaviour {
 	private void AddObservers() {
 		EventBroadcaster.Instance.AddObserver(EventNames.ARENA.DEFENSE_UPDATE, UpdateBoardState);
 		EventBroadcaster.Instance.AddObserver(EventNames.ARENA.CLOSE_BACKUPMAT, CloseBothBackupMat);
+		EventBroadcaster.Instance.AddObserver(EventNames.ARENA.SHOW_SOLDIERHISTORY, ShowSoldierHistory);
 	}
 
 	private void ClearObservers() {
 		EventBroadcaster.Instance.RemoveObserver(EventNames.ARENA.DEFENSE_UPDATE);
 		EventBroadcaster.Instance.RemoveObserver(EventNames.ARENA.CLOSE_BACKUPMAT);
+		EventBroadcaster.Instance.RemoveObserver(EventNames.ARENA.SHOW_SOLDIERHISTORY);
 	}
 	#endregion
 
@@ -70,6 +72,39 @@ public class ArenaUpdateHandler : MonoBehaviour {
 	public void CloseBothBackupMat() {
 		player1.OpenBackupMat(false);
 		player2.OpenBackupMat(false);
+	}
+
+	public void ShowSoldierHistory(Parameters p) {
+		int playerNo = p.GetIntExtra("playerNo", -1);
+		bool shouldClear = p.GetBoolExtra("shouldClear", false);
+		if(playerNo == -1) {
+			Debug.LogError("Invalid parameter value in Show Soldier History");
+			return;
+		}
+
+		if(player1.GetPlayerNo() == playerNo) {
+			// Show player 1
+			player1.ShowSoldierHistories(true);
+			player2.ShowSoldierHistories(false);
+			if (shouldClear)
+				player2.ClearSoldierHistories();
+		}
+		else if(playerNo == -2) {
+			// Show nothing; Hide all
+			player1.ShowSoldierHistories(false);
+			player2.ShowSoldierHistories(false);
+			if (shouldClear) {
+				player1.ClearSoldierHistories();
+				player2.ClearSoldierHistories();
+			}
+		}
+		else {
+			// Show player 2
+			player1.ShowSoldierHistories(false);
+			player2.ShowSoldierHistories(true);
+			if (shouldClear)
+				player1.ClearSoldierHistories();
+		}
 	}
 	#endregion
 

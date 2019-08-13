@@ -41,6 +41,7 @@ public class EventNames {
 		public const string REDUCE_HEALTH = "REDUCE_HEALTH";
 		public const string DEFENSE_UPDATE = "DEFENSE_UPDATE";
 		public const string CLOSE_BACKUPMAT = "CLOSEMAT";
+		public const string SHOW_SOLDIERHISTORY = "SHOW_HISTORY";
 	}
 }
 
