@@ -144,13 +144,18 @@ public class PlayerPanel : MonoBehaviour {
 		p.GetCardManager().ResetCardHistory();
 		//int roll = General.RollDice(GameConstants.MIN_DRAWN_CARDS, GameConstants.MAX_DRAWN_CARDS);
 		//for (int i = 0; i < roll; i++) {
-		p.GetCardManager().DrawCard(true);
-		//}
 
-		p.ConsumeMove();
-        // EDITED (CANDY) Moved after confirm
-        //ActionsLeftPanel.Instance.Show();
-        StartCoroutine(WaitForActionsLeftComplete(p));
+		if (p.GetCardManager().DrawCard(true)) {
+			//}
+
+			p.ConsumeMove();
+			// EDITED (CANDY) Moved after confirm
+			//ActionsLeftPanel.Instance.Show();
+			StartCoroutine(WaitForActionsLeftComplete(p));
+		}
+		else {
+			// failed draw, do nothing.
+		}
     }
 
     IEnumerator WaitForActionsLeftComplete(PlayerManager p) {

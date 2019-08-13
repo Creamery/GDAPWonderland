@@ -187,10 +187,16 @@ public class GameMaster : MonoBehaviour {
 		//for(int i = 0; i < drawCount; i++) {
 		//    playerTurn.GetCardManager().DrawCard(true);
 		//}
-		playerTurn.GetCardManager().DrawCard(true);
+		if (playerTurn.GetCardManager().DrawCard(true)) {
+			// Successful draw
+			MainScreenManager_PhaseScreen.Instance.ShowDrawPhase();
+			General.LogEntrance("UI MainScreenManager_PhaseScreen PHASE");
+		}
+		else {
+			// Failed draw; skip draw animation
+			this.StopPhase();
+		}
 
-        MainScreenManager_PhaseScreen.Instance.ShowDrawPhase();
-        General.LogEntrance("UI MainScreenManager_PhaseScreen PHASE");
         // Play card burn then stop phase
         //this.StopPhase();
         // WAIT

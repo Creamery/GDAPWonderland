@@ -34,11 +34,12 @@ public class CardManager : MonoBehaviour {
     /// Who handles card burning?[TODO]
 	/// For now, send to grave.
     /// </summary>
-	public void DrawCard(bool keepHistory=false) {
+	public bool DrawCard(bool keepHistory=false) {
 		Card drawnCard = this.GetDeckManager ().DrawCard();
 		if (drawnCard == null) {
 			// TODO: if no more card left in deck.
-			return;
+			Debug.Log("<color='blue'> No more cards </color>");
+			return false;
 		}
 
 		if (!this.handManager.IsFull ()) {
@@ -52,7 +53,8 @@ public class CardManager : MonoBehaviour {
             this.GetDeckManager().AddToGrave(drawnCard);
 			// TODO: display drawn card
 			Debug.Log("<color=red>BURNED "+drawnCard.GetName()+"</color>");
-        }
+		}
+		return true;
     }
 
     /// <summary>
