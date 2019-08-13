@@ -22,7 +22,17 @@ public class BackupMatAnimHandler : MonoBehaviour {
 
     public bool Idle(bool val) {
         anim.SetBool(IDLE_STATE, val);
+        RefreshFloatingCards();
         return true;
+    }
+
+    public void RefreshFloatingCards() {
+
+        if(backups.Length > 0) {
+            backups[0].GetFloatingCard().Refresh();
+            backups[1].GetFloatingCard().Refresh();
+            backups[2].GetFloatingCard().Refresh();
+        }
     }
 
 	public bool Open(bool val) {

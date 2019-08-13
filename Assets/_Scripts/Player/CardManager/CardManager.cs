@@ -163,7 +163,8 @@ public class CardManager : MonoBehaviour {
 				this.GetDefenseManager().ReplenishBackDefense(i-3, c, false);
 			}
 		}
-		this.GetDeckManager().ShuffleDeck();
+
+        this.GetDeckManager().ShuffleDeck();
 		this.GetDefenseManager().PostDefenseUpdate();
 	}
 

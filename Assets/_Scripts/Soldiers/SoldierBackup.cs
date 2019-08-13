@@ -11,7 +11,9 @@ public class SoldierBackup : MonoBehaviour {
 	[SerializeField] private GameObject cardObject;
 	[SerializeField] private GameObject cardFront;
 	[SerializeField] private GameObject placeHolderBlock;
-	[Header("Debugging")]
+    [SerializeField] private SoldierBackupFloatingCard floatingCard;
+
+    [Header("Debugging")]
 	//[SerializeField] int index;
 
 	private bool hidden;
@@ -52,6 +54,7 @@ public class SoldierBackup : MonoBehaviour {
 			this.GetCardAttack().SetText("");
 			this.GetCardHealth().SetTextMesh("");
 			this.cardObject.SetActive(false);
+            this.GetFloatingCard().Hide(); // Hide floating card
 			hidden = false;
 			Debug.Log("Set Null");
 		}
@@ -59,8 +62,9 @@ public class SoldierBackup : MonoBehaviour {
 
 			Debug.Log("Card set:" + card.GetCardSuit());
 			this.cardObject.SetActive(true);
+            this.GetFloatingCard().Show(); // Show floating card
 
-			this.GetCardAttack().SetText(card.GetCardAttack().ToString(), card.GetCardSuit());
+            this.GetCardAttack().SetText(card.GetCardAttack().ToString(), card.GetCardSuit());
 			this.GetCardHealth().SetTextMesh(card.GetCardHealth().ToString(), card.GetCardSuit());
 
             this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(card.GetCardSuit(), parent.GetPlayerNo(), card.GetCardRank());
@@ -92,7 +96,7 @@ public class SoldierBackup : MonoBehaviour {
 				anim.ResetTrigger("Hide");
 				anim.SetTrigger("Show");
 				hidden = false;
-			}
+            }
 		}
 	}
 
@@ -147,5 +151,12 @@ public class SoldierBackup : MonoBehaviour {
             // this.healthTM.fontSharedMaterial = Resources.Load<Material>(fontPath + fontHealth);
         }
         return this.healthTM;
+    }
+
+    public SoldierBackupFloatingCard GetFloatingCard() {
+        if (this.floatingCard == null) {
+            this.floatingCard = GetComponentInChildren<SoldierBackupFloatingCard>();
+        }
+        return this.floatingCard;
     }
 }

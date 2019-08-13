@@ -20,6 +20,7 @@ public class DefenseManager : MonoBehaviour {
 		EventBroadcaster.Instance.PostEvent(EventNames.ARENA.DEFENSE_UPDATE);
 	}
 
+
 	/**
 	 * Called everytime a card is killed.
 	 * Checks if frontCards > backCards > summonCard are empty (in that order).
@@ -113,7 +114,8 @@ public class DefenseManager : MonoBehaviour {
 	/// <param name="newBackCard"></param>
 	public void ReplenishBackDefense(int backIndex, Card newBackCard, bool shouldUpdate = true) {
 		this.GetBackCards()[backIndex] = newBackCard;
-		if(shouldUpdate)
+
+        if (shouldUpdate)
 			PostDefenseUpdate();
 	}
 
