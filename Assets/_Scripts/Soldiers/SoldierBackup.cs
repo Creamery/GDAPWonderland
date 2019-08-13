@@ -6,12 +6,14 @@ using TMPro;
 public class SoldierBackup : MonoBehaviour {
 
 	[Header("Setup")]
-	[SerializeField] private TextMeshPro attackTM;
-	[SerializeField] private TextMeshPro healthTM;
+	[SerializeField] private CardAttackText attackTM;
+	[SerializeField] private CardHealthText healthTM;
 	[SerializeField] private GameObject cardObject;
 	[SerializeField] private GameObject cardFront;
 	[SerializeField] private GameObject placeHolderBlock;
-	[Header("Debugging")]
+    [SerializeField] private SoldierBackupFloatingCard floatingCard;
+
+    [Header("Debugging")]
 	//[SerializeField] int index;
 
 	private bool hidden;
@@ -49,9 +51,10 @@ public class SoldierBackup : MonoBehaviour {
 
 	public void SetCard(Card card) {
 		if (card == null) {
-			this.attackTM.SetText("");
-			this.healthTM.SetText("");
+			this.GetCardAttack().SetText("");
+			this.GetCardHealth().SetTextMesh("");
 			this.cardObject.SetActive(false);
+            this.GetFloatingCard().Hide(); // Hide floating card
 			hidden = false;
 			Debug.Log("Set Null");
 		}
@@ -59,9 +62,12 @@ public class SoldierBackup : MonoBehaviour {
 
 			Debug.Log("Card set:" + card.GetCardSuit());
 			this.cardObject.SetActive(true);
-			this.attackTM.SetText(card.GetCardAttack().ToString());
-			this.healthTM.SetText(card.GetCardHealth().ToString());
-			this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(card.GetCardSuit(), parent.GetPlayerNo(), card.GetCardRank());
+            this.GetFloatingCard().Show(); // Show floating card
+
+            this.GetCardAttack().SetText(card.GetCardAttack().ToString(), card.GetCardSuit());
+			this.GetCardHealth().SetTextMesh(card.GetCardHealth().ToString(), card.GetCardSuit());
+
+            this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(card.GetCardSuit(), parent.GetPlayerNo(), card.GetCardRank());
 			Debug.Log("Set Hidden: " + !parent.IsBackupMatShown);
 			SetHidden(!parent.IsBackupMatShown);
 		}
@@ -82,21 +88,21 @@ public class SoldierBackup : MonoBehaviour {
 				hidden = true;
 			}
 			else {
-				this.attackTM.SetText(cardReference.GetCardAttack().ToString());
-				this.healthTM.SetText(cardReference.GetCardHealth().ToString());
-				this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(this.cardReference.GetCardSuit(), parent.GetPlayerNo(), this.cardReference.GetCardRank());
+				this.GetCardAttack().SetText(cardReference.GetCardAttack().ToString(), cardReference.GetCardSuit());
+				this.GetCardHealth().SetTextMesh(cardReference.GetCardHealth().ToString(), cardReference.GetCardSuit());
+                this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(this.cardReference.GetCardSuit(), parent.GetPlayerNo(), this.cardReference.GetCardRank());
 				//anim.SetBool("Hidden", false);
 
 				anim.ResetTrigger("Hide");
 				anim.SetTrigger("Show");
 				hidden = false;
-			}
+            }
 		}
 	}
 
 	public void CompleteHideAnim() {
-		this.attackTM.SetText("");
-		this.healthTM.SetText("");
+		this.GetCardAttack().SetText("");
+		this.GetCardHealth().SetTextMesh("");
 		this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardHiddenMaterial();
 	}
 
@@ -130,4 +136,27 @@ public class SoldierBackup : MonoBehaviour {
 	public PlayerManager GetPlayer() {
 		return this.parent.GetPlayer();
 	}
+
+    public CardAttackText GetCardAttack() {
+        if (this.attackTM == null) {
+            this.attackTM = GetComponent<CardAttackText>();
+            // this.attackTM.fontSharedMaterial = Resources.Load<Material>(fontPath + fontHealth);
+        }
+        return this.attackTM;
+    }
+
+    public CardHealthText GetCardHealth() {
+        if (this.healthTM == null) {
+            this.healthTM = GetComponent<CardHealthText>();
+            // this.healthTM.fontSharedMaterial = Resources.Load<Material>(fontPath + fontHealth);
+        }
+        return this.healthTM;
+    }
+
+    public SoldierBackupFloatingCard GetFloatingCard() {
+        if (this.floatingCard == null) {
+            this.floatingCard = GetComponentInChildren<SoldierBackupFloatingCard>();
+        }
+        return this.floatingCard;
+    }
 }

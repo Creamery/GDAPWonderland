@@ -9,6 +9,9 @@ public class DrawPanel : MonoBehaviour {
     [SerializeField] private CardHealthText cardHealthText;
     [SerializeField] private CardAttackText cardAttackText;
 
+
+
+
     private static DrawPanel sharedInstance;
 	public static DrawPanel Instance {
 		get { return sharedInstance; }
@@ -65,10 +68,13 @@ public class DrawPanel : MonoBehaviour {
 
     public void LoadCardFront(Card card) {
         this.GetCardImageChangeManager().ChangeImage(card);
-        this.GetCardHealthText().SetText(card.GetCardHealth().ToString());
-        this.GetCardAttackText().SetText(card.GetCardAttack().ToString());
+        this.GetCardHealthText().SetTextUI(card.GetCardHealth().ToString(), card.GetCardSuit());
+        this.GetCardAttackText().SetTextUI(card.GetCardAttack().ToString(), card.GetCardSuit());
+
 
     }
+
+
 
     public void Hide() {
 		// Play Hide Anim

@@ -9,12 +9,12 @@ public class FocusCard : MonoBehaviour {
 
     public void SetCard(Card card) {
         if (card == null) {
-            attackText.SetText("");
-            healthText.SetText("");
+            attackText.SetTextUI("");
+            healthText.SetTextUI("");
         }
         else {
-            attackText.SetText(card.GetCardAttack().ToString());
-            healthText.SetText(card.GetCardHealth().ToString());
+            attackText.SetTextUI(card.GetCardAttack().ToString(), card.GetCardSuit());
+            healthText.SetTextUI(card.GetCardHealth().ToString(), card.GetCardSuit());
         }
     }
 }

@@ -63,11 +63,13 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			//	Debug.Log("<color='blue'> Updating Soldier #" + i + " with: " + frontCards[i].GetCardSuit() + " Rank " + frontCards[i].GetCardRank() + " </color>");
 
 			target_sdg.SetBackup(i, backCards[i]);
-			//if (backCards[i] != null)
-			//	Debug.Log("<color='blue'> Updating Backup #" + i + " with: " + backCards[i].GetCardSuit() + " Rank " + backCards[i].GetCardRank() + " </color>");
-		}
-		
-	}
+            //if (backCards[i] != null)
+            //	Debug.Log("<color='blue'> Updating Backup #" + i + " with: " + backCards[i].GetCardSuit() + " Rank " + backCards[i].GetCardRank() + " </color>");
+
+        }
+        target_sdg.Refresh();
+
+    }
 
 	public void CloseBothBackupMat() {
 		player1.OpenBackupMat(false);

@@ -45,6 +45,14 @@ public class SoldierDefenseGroup : MonoBehaviour {
 		return backups[index];
 	}
 
+    public void Refresh() {
+        if(backups.Length > 0) {
+            backups[0].GetFloatingCard().Refresh();
+            backups[1].GetFloatingCard().Refresh();
+            backups[2].GetFloatingCard().Refresh();
+        }
+    }
+
 	/// <summary>
 	/// Finds the index of the specified soldier.
 	/// </summary>
@@ -91,7 +99,7 @@ public class SoldierDefenseGroup : MonoBehaviour {
 
 	public void SetBackup(int index, Card cardReference) {
 		backups[index].SetCard(cardReference);
-	}
+    }
 
 	/// <summary>
 	/// Sets the backup cards to be targetable, if possible.
