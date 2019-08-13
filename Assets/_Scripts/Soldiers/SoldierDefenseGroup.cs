@@ -131,6 +131,12 @@ public class SoldierDefenseGroup : MonoBehaviour {
 		}
 	}
 
+	public void SetTranslucentSoldiers(bool val) {
+		foreach(Soldier s in soldiers) {
+			s.SetTranslucentMaterial(val);
+		}
+	}
+
 	public void ToggleBackupMat() {
 		isBackupMatShown = !isBackupMatShown;
 		backupContainer.Open(isBackupMatShown);

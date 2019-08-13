@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoldierMaterialOverrideToggler : MonoBehaviour {
 
 	[SerializeField] private Material[] materialForOverride;
-	[SerializeField] private bool toggleMaterial;
 	private bool isOverriden;
 
 	private List<Material[]> materialsCache;
@@ -16,10 +15,6 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (toggleMaterial) {
-			ToggleOverride();
-			toggleMaterial = false;
-		}
 	}
 
 	public void ToggleOverride() {
@@ -35,7 +30,11 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 
 	public void OverrideMaterial() {
 		materialsCache.Clear();
+
+		isOverriden = true;
 		Renderer[] children = GetComponentsInChildren<Renderer>(false);
+		if (children.Length < 1)
+			return;
 		foreach(Renderer child in children) {
 			materialsCache.Add(child.materials);
 			child.materials = materialForOverride;
@@ -43,12 +42,17 @@ public class SoldierMaterialOverrideToggler : MonoBehaviour {
 	}
 
 	public void RestoreMaterial() {
+		isOverriden = false;
 		Renderer[] children = GetComponentsInChildren<Renderer>(false);
+		if (children.Length < 1)
+			return;
+
 		int i = 0;
 		foreach (Renderer child in children) {
 			child.materials = materialsCache[i];
 			i++;
 		}
+
 	}
 
 	/// <summary>

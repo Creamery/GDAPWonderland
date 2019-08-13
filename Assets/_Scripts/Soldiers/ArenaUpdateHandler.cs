@@ -76,6 +76,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 		player2.OpenBackupMat(false);
 	}
 
+	/// <summary>
+	/// Also toggles soldier material
+	/// </summary>
+	/// <param name="p"></param>
 	public void ShowSoldierHistory(Parameters p) {
 		int playerNo = p.GetIntExtra("playerNo", -1);
 		bool shouldClear = p.GetBoolExtra("shouldClear", false);
@@ -90,6 +94,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			player2.ShowSoldierHistories(false);
 			if (shouldClear)
 				player2.ClearSoldierHistories();
+
+			// Set players' soldiers' material (translucent or normal)
+			player1.SetTranslucentSoldiers(true);
+			player2.SetTranslucentSoldiers(false);
 		}
 		else if(playerNo == -2) {
 			// Show nothing; Hide all
@@ -99,6 +107,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 				player1.ClearSoldierHistories();
 				player2.ClearSoldierHistories();
 			}
+
+			// Set players' soldiers' material (translucent or normal)
+			player1.SetTranslucentSoldiers(false);
+			player2.SetTranslucentSoldiers(false);
 		}
 		else {
 			// Show player 2
@@ -106,6 +118,10 @@ public class ArenaUpdateHandler : MonoBehaviour {
 			player2.ShowSoldierHistories(true);
 			if (shouldClear)
 				player1.ClearSoldierHistories();
+			
+			// Set players' soldiers' material (translucent or normal)
+			player1.SetTranslucentSoldiers(false);
+			player2.SetTranslucentSoldiers(true);
 		}
 	}
 	#endregion

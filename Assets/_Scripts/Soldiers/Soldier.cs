@@ -16,6 +16,7 @@ public class Soldier : MonoBehaviour {
 	[Header("Setup")]
 	[SerializeField] private SoldierHistoryManager soldierHistory;
 	[SerializeField] private OutlinedModel outline;
+	[SerializeField] private SoldierMaterialOverrideToggler materialOverrider;
 	[SerializeField] private SoldierModelHandler modelContainer;
 	//[SerializeField] private GameObject placeHolderBlock;
 	[SerializeField] private GameObject colliderObject;
@@ -38,6 +39,7 @@ public class Soldier : MonoBehaviour {
 
 	private void Awake() {
 		this.parent = GetComponentInParent<SoldierDefenseGroup>();
+		this.materialOverrider = GetComponentInChildren<SoldierMaterialOverrideToggler>();
 	}
 
 	private void Start() {
@@ -214,6 +216,19 @@ public class Soldier : MonoBehaviour {
 
 	}
 
+	public void EnableOutline(bool val) {
+		this.GetOutline().enabled = val;
+	}
+
+	public void SetTranslucentMaterial(bool val) {
+		// Stops attempt to override material if no soldier model is shown
+		if (cardReference == null)
+			return;
+		if (val)
+			this.materialOverrider.OverrideMaterial();
+		else
+			this.materialOverrider.RestoreMaterial();
+	}
 
 	#region Getter Functions
 	/**
@@ -309,10 +324,6 @@ public class Soldier : MonoBehaviour {
 	//		this.placeHolderBlock.SetActive(val);
 	//	}
 	//}
-
-	public void EnableOutline(bool val) {
-		this.GetOutline().enabled = val;
-	}
 
 	public void SetHealthTextActive(bool val) {
 		this.healthTextContainer.SetActive(val);
