@@ -14,7 +14,7 @@ public class FocusCard : MonoBehaviour {
         }
         else {
             attackText.SetTextUI(card.GetCardAttack().ToString(), card.GetCardSuit());
-            healthText.SetTextUI(card.GetCardHealth().ToString());
+            healthText.SetTextUI(card.GetCardHealth().ToString(), card.GetCardSuit());
         }
     }
 }

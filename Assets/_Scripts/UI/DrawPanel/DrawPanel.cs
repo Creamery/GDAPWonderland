@@ -68,7 +68,7 @@ public class DrawPanel : MonoBehaviour {
 
     public void LoadCardFront(Card card) {
         this.GetCardImageChangeManager().ChangeImage(card);
-        this.GetCardHealthText().SetTextUI(card.GetCardHealth().ToString());
+        this.GetCardHealthText().SetTextUI(card.GetCardHealth().ToString(), card.GetCardSuit());
         this.GetCardAttackText().SetTextUI(card.GetCardAttack().ToString(), card.GetCardSuit());
 
 

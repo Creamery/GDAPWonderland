@@ -10,8 +10,13 @@ public class CardHealthText : MonoBehaviour {
     readonly string fontPath = "FontMaterials/";
     readonly string fontHealth = "LiberationSans SDF - HealthOutline";
 
+    public void SetTextUI(string healthText, Card.Suit suit) {
+        if (suit == Card.Suit.HEARTS) { // Hearts shouldn't have text
+            healthText = "";
+        }
+        this.SetTextUI(healthText);
+    }
 
-    
     public void SetTextUI(string healthText) {
         this.GetTextMeshUI().text = healthText;
         this.GetTextMeshUI().color = HEALTH;
@@ -30,6 +35,13 @@ public class CardHealthText : MonoBehaviour {
     }
 
 
+    public void SetTextMesh(string healthText, Card.Suit suit) {
+        if (suit == Card.Suit.HEARTS) { // Hearts shouldn't have text
+            healthText = "";
+        }
+
+        this.SetTextMesh(healthText);
+    }
 
 
     public void SetTextMesh(string healthText) {

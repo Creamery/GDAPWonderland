@@ -47,13 +47,15 @@ public class UIHandCard : MonoBehaviour{
             // GetCardAttackText().GetTextMesh().color = DEFAULT;
 
             this.GetCardAttackText().SetTextUI(c.GetCardAttack().ToString(), c.GetCardSuit());
-			this.GetCardHealthText().SetTextUI(c.GetCardHealth().ToString());
-			EnableBonus(GetComponentInParent<UIHandCardManager>().IsPoweredUp);
+			this.GetCardHealthText().SetTextUI(c.GetCardHealth().ToString(), c.GetCardSuit());
+            EnableBonus(GetComponentInParent<UIHandCardManager>().IsPoweredUp);
 		}
 		else {
-			this.GetCardAttackText().SetTextUI("0");
-			this.GetCardHealthText().SetTextUI("0");
-		}
+			// this.GetCardAttackText().SetTextUI("0");
+			// this.GetCardHealthText().SetTextUI("0");
+            this.GetCardAttackText().SetTextUI("");
+            this.GetCardHealthText().SetTextUI("");
+        }
 	}
 
 	/// <summary>

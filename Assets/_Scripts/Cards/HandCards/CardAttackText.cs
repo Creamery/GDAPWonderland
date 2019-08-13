@@ -26,6 +26,10 @@ public class CardAttackText : MonoBehaviour {
     [SerializeField] protected Material matHEARTS;
 
     public void SetText(string attackText, Card.Suit suit) {
+        if(suit == Card.Suit.HEARTS) { // Hearts shouldn't have text
+            attackText = "";
+        }
+
         this.SetText(attackText);
         this.recolorText(suit);
     }
@@ -36,6 +40,10 @@ public class CardAttackText : MonoBehaviour {
 
 
     public void SetTextUI(string attackText, Card.Suit suit) {
+        if (suit == Card.Suit.HEARTS) { // Hearts shouldn't have text
+            attackText = "";
+        }
+
         this.SetTextUI(attackText);
         this.recolorTextUI(suit);
     }

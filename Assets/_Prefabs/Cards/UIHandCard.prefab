@@ -490,6 +490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f6b2ab2199fe14abacc50d64ba302b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matCLUBS: {fileID: 0}
+  matDIAMONDS: {fileID: 0}
+  matSPADES: {fileID: 0}
+  matHEARTS: {fileID: 0}
 --- !u!114 &114425669906804214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -620,7 +624,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}

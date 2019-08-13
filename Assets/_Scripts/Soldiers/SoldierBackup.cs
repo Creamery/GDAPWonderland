@@ -61,9 +61,9 @@ public class SoldierBackup : MonoBehaviour {
 			this.cardObject.SetActive(true);
 
 			this.GetCardAttack().SetText(card.GetCardAttack().ToString(), card.GetCardSuit());
-			this.GetCardHealth().SetTextMesh(card.GetCardHealth().ToString());
+			this.GetCardHealth().SetTextMesh(card.GetCardHealth().ToString(), card.GetCardSuit());
 
-			this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(card.GetCardSuit(), parent.GetPlayerNo(), card.GetCardRank());
+            this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(card.GetCardSuit(), parent.GetPlayerNo(), card.GetCardRank());
 			Debug.Log("Set Hidden: " + !parent.IsBackupMatShown);
 			SetHidden(!parent.IsBackupMatShown);
 		}
@@ -85,8 +85,8 @@ public class SoldierBackup : MonoBehaviour {
 			}
 			else {
 				this.GetCardAttack().SetText(cardReference.GetCardAttack().ToString(), cardReference.GetCardSuit());
-				this.GetCardHealth().SetTextMesh(cardReference.GetCardHealth().ToString());
-				this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(this.cardReference.GetCardSuit(), parent.GetPlayerNo(), this.cardReference.GetCardRank());
+				this.GetCardHealth().SetTextMesh(cardReference.GetCardHealth().ToString(), cardReference.GetCardSuit());
+                this.cardFront.GetComponent<MeshRenderer>().material = General.GetCardMaterial(this.cardReference.GetCardSuit(), parent.GetPlayerNo(), this.cardReference.GetCardRank());
 				//anim.SetBool("Hidden", false);
 
 				anim.ResetTrigger("Hide");
