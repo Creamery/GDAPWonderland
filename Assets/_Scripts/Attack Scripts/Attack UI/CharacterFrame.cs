@@ -33,9 +33,12 @@ public class CharacterFrame : CharacterFrameBase {
 		else {
 			this.supportTextValue.SetText("-");
 		}
+
+		PlayerManager curPlayer = GameMaster.Instance.GetCurPlayer();
+		PlayerManager opposingPlayer = GameMaster.Instance.GetOpposingPlayer(curPlayer);
 		
         // Enable the image based on suit and player
-        switch (General.GetPlayerNo(MainScreenManager_GameScene.Instance.GetPlayer())) {
+        switch (opposingPlayer.GetPlayerNumber()) {
             case 1:
                 this.GetWhiteSelector().EnableSuit(card.GetCardSuit());
                 break;
