@@ -8,12 +8,12 @@ public class SoldierHistoryModels : MonoBehaviour {
 
     [SerializeField] protected TextMeshTeamLeadObjectMarker textTeamLead;
     [SerializeField] protected TextMeshTeamAssistObjectMarker textTeamAssist;
-    [SerializeField] protected TeamWinObjectMarker teamWinLogo;
+    //[SerializeField] protected TeamWinObjectMarker teamWinLogo;
 	// TODO: only enable either team win or target win logo
 
     [SerializeField] protected TextMeshTargetLeadObjectMarker textTargetLead;
     [SerializeField] protected TextMeshTargetAssistObjectMarker textTargetAssist;
-    [SerializeField] protected TargetWinObjectMarker targetWinLogo;
+    //[SerializeField] protected TargetWinObjectMarker targetWinLogo;
 
 
 	// Enable/disable these depending on the rule shown in the history entry
@@ -28,7 +28,7 @@ public class SoldierHistoryModels : MonoBehaviour {
 		Card[] atkCards = toShow.attackerCards;
 		Card[] defCards = toShow.defenderCards;
 
-		SetWinner(isAtkWinner);
+		//SetWinner(isAtkWinner);
 		ShowRule(isRuleHigher);
 		SetAttackerInfo(atkCards);
 		SetDefenderInfo(defCards);
@@ -39,9 +39,9 @@ public class SoldierHistoryModels : MonoBehaviour {
 		SetAttackerInfo(null);
 		SetDefenderInfo(null);
 
-		//Hide Win logos
-		teamWinLogo.gameObject.SetActive(false);
-		targetWinLogo.gameObject.SetActive(false);
+		////Hide Win logos
+		//teamWinLogo.gameObject.SetActive(false);
+		//targetWinLogo.gameObject.SetActive(false);
 
 		//Hide rule logos
 		ruleHighFront.gameObject.SetActive(false);
@@ -83,10 +83,10 @@ public class SoldierHistoryModels : MonoBehaviour {
 		textTeamAssist.SetText(atkTxt2);
 	}
 
-	private void SetWinner(bool doesAttackerWin) {
-		teamWinLogo.gameObject.SetActive(doesAttackerWin);
-		targetWinLogo.gameObject.SetActive(!doesAttackerWin);
-	}
+	//private void SetWinner(bool doesAttackerWin) {
+	//	teamWinLogo.gameObject.SetActive(doesAttackerWin);
+	//	targetWinLogo.gameObject.SetActive(!doesAttackerWin);
+	//}
 
 	private void ShowRule(bool isHigher) {
 		ruleHighFront.gameObject.SetActive(isHigher);
@@ -105,15 +105,15 @@ public class SoldierHistoryModels : MonoBehaviour {
 			textTeamLead = GetComponentInChildren<TextMeshTeamLeadObjectMarker>();
 		if (textTeamAssist == null)
 			textTeamAssist = GetComponentInChildren<TextMeshTeamAssistObjectMarker>();
-		if (teamWinLogo == null)
-			teamWinLogo = GetComponentInChildren<TeamWinObjectMarker>();
+		//if (teamWinLogo == null)
+		//	teamWinLogo = GetComponentInChildren<TeamWinObjectMarker>();
 		// Target Components
 		if (textTargetLead == null)
 			textTargetLead = GetComponentInChildren<TextMeshTargetLeadObjectMarker>();
 		if (textTargetAssist == null)
 			textTargetAssist = GetComponentInChildren<TextMeshTargetAssistObjectMarker>();
-		if (targetWinLogo == null)
-			targetWinLogo = GetComponentInChildren<TargetWinObjectMarker>();
+		//if (targetWinLogo == null)
+		//	targetWinLogo = GetComponentInChildren<TargetWinObjectMarker>();
 		// Rule Marker Components
 		GameObject frontModel = null, backModel = null;
 		foreach(Transform t in transform) {
