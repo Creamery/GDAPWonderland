@@ -101,8 +101,8 @@ public class SoldierBackup : MonoBehaviour {
 	}
 
 	public void SetFloatingCardTranslucent(bool val) {
-		if (cardReference == null)
-			return;
+		// if (cardReference == null) // TODO Return
+		//	return;
 
 		GetFloatingCard().SetTranslucent(val);
 	}

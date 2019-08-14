@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoldierBackupFloatingCard : MonoBehaviour {
     [SerializeField] MeshRenderer cardRenderer;
+    [SerializeField] MeshRenderer cardDesignRenderer;
     [SerializeField] MeshRenderer[] childRenderers;
 
 
@@ -67,11 +68,13 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
 
         if(isTransluscent) {
             this.GetCardRenderer().material = this.GetParentTransluscentMaterial();
-            this.GetChildRenderers()[0].material = this.GetChildTransluscentMaterial();
+            this.GetChildDesignRenderer().material = this.GetChildTransluscentMaterial();
+            // this.GetChildRenderers()[0].material = this.GetChildTransluscentMaterial();
         }
         else {
             this.GetCardRenderer().material = this.GetParentOriginalMaterial();
-            this.GetChildRenderers()[0].material = this.GetChildOriginalMaterial();
+            this.GetChildDesignRenderer().material = this.GetChildOriginalMaterial();
+            // this.GetChildRenderers()[0].material = this.GetChildOriginalMaterial();
         }
 
 	}
@@ -81,6 +84,14 @@ public class SoldierBackupFloatingCard : MonoBehaviour {
             this.cardRenderer = GetComponent<MeshRenderer>();
         }
         return this.cardRenderer;
+    }
+
+
+    public MeshRenderer GetChildDesignRenderer() {
+        if (this.cardDesignRenderer == null) {
+            this.cardDesignRenderer = GetComponentInChildren<MeshRenderer>();
+        }
+        return this.cardDesignRenderer;
     }
 
     public MeshRenderer[] GetChildRenderers() {
